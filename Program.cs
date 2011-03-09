@@ -71,24 +71,18 @@ namespace HL7TestClient
             string idNumber = Console.ReadLine().Trim();
 
             var id = new II {root = "2.16.578.1.12.4.1.4.1", extension = idNumber};
-            var getDemMessage = new PRPA_IN101307NO
-                                    {
-                                        processingCode = new CS {code = "T"},
-                                        controlActProcess =
-                                            new PRPA_IN101307UV02QUQI_MT021001UV01ControlActProcess
-                                                {
-                                                    queryByParameter =
-                                                        new PRPA_MT101307UV02QueryByParameter
-                                                            {
-                                                                parameterList =
-                                                                    new PRPA_MT101307UV02ParameterList
-                                                                        {
-                                                                            identifiedPersonIdentifier =
-                                                                                new[] {new PRPA_MT101307UV02IdentifiedPersonIdentifier {value = new[] {id}}}
-                                                                        }
-                                                            }
-                                                }
-                                    };
+            var getDemMessage = new PRPA_IN101307NO {
+                processingCode = new CS {code = "T"},
+                controlActProcess = new PRPA_IN101307UV02QUQI_MT021001UV01ControlActProcess {
+                    queryByParameter = new PRPA_MT101307UV02QueryByParameter {
+                        parameterList = new PRPA_MT101307UV02ParameterList {
+                            identifiedPersonIdentifier = new[] {
+                                new PRPA_MT101307UV02IdentifiedPersonIdentifier {value = new[] {id}}
+                            }
+                        }
+                    }
+                }
+            };
             var getDemographicsResult = client.GetDemographics(getDemMessage);
             var nameElement = getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson.identifiedPerson.name[0];
             Console.WriteLine(string.Join(" ", nameElement.Items.Select(ni => ni.Text[0])));
