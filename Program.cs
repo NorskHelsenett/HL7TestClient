@@ -12,41 +12,41 @@ namespace HL7TestClient
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            try
+            var client = CreateClient();
+            using (client)
             {
-                using (var client = new PersonRegistryClient())
+                while (true)
                 {
-                    client.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings["username"];
-                    client.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings["password"];
-
-                    while (true)
+                    try
                     {
-                        Console.Write("Would you like to (F)indCandidates, (G)etDemographics, or (E)xit? ");
-                        string action = (Console.ReadLine() ?? "").Trim().ToUpper();
+                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, or (E)xit? ");
+                        string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
                         else if (action == "G")
                             GetDemographics(client);
-                        else if (action == "E" || action == "")
+                        else if (action == "E")
                             break;
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                        client.Abort();
+                        ((IDisposable) client).Dispose();
+                        client = CreateClient();
                     }
                 }
             }
-            catch (FaultException e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            catch (Exception e)
-            {
-                do
-                {
-                    Console.WriteLine(e);
-                    e = e.InnerException;
-                } while (e != null);
-            }
-            Console.ReadLine();
+        }
+
+        private static PersonRegistryClient CreateClient()
+        {
+            var client = new PersonRegistryClient();
+            client.ClientCredentials.UserName.UserName = ConfigurationManager.AppSettings["username"];
+            client.ClientCredentials.UserName.Password = ConfigurationManager.AppSettings["password"];
+            return client;
         }
 
         private static void FindCandidates(PersonRegistryClient client)
