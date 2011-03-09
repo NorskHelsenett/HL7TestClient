@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.Linq;
 using System.ServiceModel;
+using HL7TestClient.Constants;
 using HL7TestClient.PersonRegistry;
+using NHN.HL7.Constants;
 
 namespace HL7TestClient
 {
@@ -20,12 +24,12 @@ namespace HL7TestClient
                     while (true)
                     {
                         Console.Write("Would you like to (F)indCandidates, (G)etDemographics, or (E)xit? ");
-                        string action = Console.ReadLine().Trim().ToUpper();
+                        string action = (Console.ReadLine() ?? "").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
                         else if (action == "G")
                             GetDemographics(client);
-                        else if (action == "E")
+                        else if (action == "E" || action == "")
                             break;
                     }
                 }
@@ -45,30 +49,59 @@ namespace HL7TestClient
             Console.ReadLine();
         }
 
-        public static void FindCandidates(PersonRegistryClient client)
+        private static void FindCandidates(PersonRegistryClient client)
         {
-            Console.Write("Last name: ");
-            string lastName = Console.ReadLine().Trim();
+            const string dateFormat = "yyyyMMdd";
 
-            //PRPA_MT101306UV02PersonBirthTime birthTime = new PRPA_MT101306UV02PersonBirthTime { value = new[] { new IVL_TS { value = "19850101" } } };
-            var name = new PRPA_MT101306UV02PersonName
-                           {value = new[] {new PN {Items = new ENXP[] {/*new engiven {Text = new[] {firstName}},*/ new enfamily {Text = new[] {lastName}}}}}};
-            var paramList = new PRPA_MT101306UV02ParameterList {/*personBirthTime = new[] {birthTime}, */personName = new[] {name}};
-            var query = new PRPA_MT101306UV02QueryByParameter {parameterList = paramList};
-            var cact = new PRPA_IN101305UV02QUQI_MT021001UV01ControlActProcess {queryByParameter = query};
-            var message = new PRPA_IN101305NO {controlActProcess = cact, processingCode = new CS {code = "T"}};
+            Console.Write("First name(s), or blank to skip: ");
+            string firstName = (Console.ReadLine() ?? "").Trim();
+            Console.Write("Last name(s), or blank to skip: ");
+            string lastName = (Console.ReadLine() ?? "").Trim();
+            Console.Write("Date of birth ({0}), or blank to skip: ", dateFormat);
+            string dateOfBirth = (Console.ReadLine() ?? "").Trim();
 
-            var result = client.FindCandidates(message);
-            Console.WriteLine(result.controlActProcess.queryAck.resultTotalQuantity.value);
+            var paramList = new PRPA_MT101306UV02ParameterList(); // {/*personBirthTime = new[] {birthTime}, */personName = new[] {name}};
+
+            if (lastName != "" || firstName != "")
+            {
+                var nameItems = new List<ENXP>();
+                nameItems.AddRange(firstName.Split().Select(fn => new engiven(fn)));
+                nameItems.AddRange(lastName.Split().Select(ln => new enfamily(ln)));
+                paramList.personName = CreatePersonNameParameter(nameItems);
+            }
+
+            if (dateOfBirth != "")
+            {
+                DateTime dummy;
+                if (DateTime.TryParseExact(dateOfBirth, dateFormat, null, DateTimeStyles.None, out dummy))
+                    paramList.personBirthTime = CreatePersonBirthTimeParameter(dateOfBirth);
+                else
+                    Console.WriteLine("Warning: Date of birth is illegal; skipping");
+            }
+
+            var message = new PRPA_IN101305NO {
+                processingCode = ProcessingCode.Test(),
+                controlActProcess = new PRPA_IN101305UV02QUQI_MT021001UV01ControlActProcess {
+                    queryByParameter = new PRPA_MT101306UV02QueryByParameter {
+                        parameterList = paramList
+                    }
+                }
+            };
+
+            PRPA_IN101306NO result = client.FindCandidates(message);
+
+            Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
                 foreach (var subject in result.controlActProcess.subject)
                     Console.WriteLine(subject.registrationEvent.subject1.identifiedPerson.id[0].extension);
         }
 
-        public static void GetDemographics(PersonRegistryClient client)
+        private static void GetDemographics(PersonRegistryClient client)
         {
             Console.Write("Enter id number: ");
-            string idNumber = Console.ReadLine().Trim();
+            string idNumber = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(idNumber))
+                return;
 
             var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
             var getDemMessage = new PRPA_IN101307NO {
@@ -103,6 +136,30 @@ namespace HL7TestClient
                     Console.WriteLine("Unrecognized query response code: '{0}'", queryResponseCode);
                     break;
             }
+        }
+
+        private static PRPA_MT101306UV02PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
+        {
+            return new[] {
+                new PRPA_MT101306UV02PersonName {
+                    value = new[] {
+                        new PN {
+                            Items = nameItems.ToArray()
+                        }
+                    }
+                }
+            };
+        }
+
+        private static PRPA_MT101306UV02PersonBirthTime[] CreatePersonBirthTimeParameter(string dateOfBirth)
+        {
+            return new[] {
+                new PRPA_MT101306UV02PersonBirthTime {
+                    value = new[] {
+                        new IVL_TS {value = dateOfBirth}
+                    }
+                }
+            };
         }
     }
 }
