@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
-using System.ServiceModel;
+using System.Text;
 using HL7TestClient.Constants;
+using HL7TestClient.Interfaces;
 using HL7TestClient.PersonRegistry;
 using NHN.HL7.Constants;
 
@@ -93,7 +94,7 @@ namespace HL7TestClient
             Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
                 foreach (var subject in result.controlActProcess.subject)
-                    Console.WriteLine(subject.registrationEvent.subject1.identifiedPerson.id[0].extension);
+                    Console.WriteLine(PersonToString(subject.registrationEvent.subject1.identifiedPerson));
         }
 
         private static void GetDemographics(PersonRegistryClient client)
@@ -123,8 +124,7 @@ namespace HL7TestClient
             switch (queryResponseCode)
             {
                 case QueryResponseCode.Ok:
-                    PN nameElement = getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson.identifiedPerson.name[0];
-                    Console.WriteLine(string.Join(" ", nameElement.Items.Select(ni => ni.Text[0])));
+                    Console.WriteLine(PersonToString(getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson));
                     break;
                 case QueryResponseCode.NoResultsFound:
                     Console.WriteLine("No results found");
@@ -160,6 +160,37 @@ namespace HL7TestClient
                     }
                 }
             };
+        }
+
+        private static string PersonToString(IIdentifiedPerson identifiedPerson)
+        {
+            var sb = new StringBuilder();
+            sb.Append(identifiedPerson.id[0].extension);
+            sb.Append(": ");
+
+            IPerson person = identifiedPerson.identifiedPerson;
+
+            sb.Append(string.Join(" ", person.name[0].Items.Select(ni => ni.Text[0])));
+
+            if (person.administrativeGenderCode != null)
+            {
+                sb.Append("; Gender: ");
+                sb.Append(person.administrativeGenderCode.code);
+            }
+
+            if (person.birthTime != null)
+            {
+                sb.Append("; Date of birth: ");
+                sb.Append(person.birthTime.value);
+            }
+
+            if (person.addr != null && person.addr.Length > 0)
+            {
+                sb.Append("; Address: ");
+                sb.Append(string.Join(" ", person.addr[0].Items.Select(ai => ai.Text[0])));
+            }
+
+            return sb.ToString();
         }
     }
 }
