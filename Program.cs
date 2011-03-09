@@ -70,9 +70,9 @@ namespace HL7TestClient
             Console.Write("Enter id number: ");
             string idNumber = Console.ReadLine().Trim();
 
-            var id = new II {root = "2.16.578.1.12.4.1.4.1", extension = idNumber};
+            var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
             var getDemMessage = new PRPA_IN101307NO {
-                processingCode = new CS {code = "T"},
+                processingCode = ProcessingCode.Test(),
                 controlActProcess = new PRPA_IN101307UV02QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101307UV02QueryByParameter {
                         parameterList = new PRPA_MT101307UV02ParameterList {
@@ -89,14 +89,14 @@ namespace HL7TestClient
             string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
             {
-                case "OK":
+                case QueryResponseCode.Ok:
                     PN nameElement = getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson.identifiedPerson.name[0];
                     Console.WriteLine(string.Join(" ", nameElement.Items.Select(ni => ni.Text[0])));
                     break;
-                case "NF":
+                case QueryResponseCode.NoResultsFound:
                     Console.WriteLine("No results found");
                     break;
-                case "QE":
+                case QueryResponseCode.QueryParameterError:
                     Console.WriteLine("Query parameter error");
                     break;
                 default:
