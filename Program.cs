@@ -83,9 +83,26 @@ namespace HL7TestClient
                     }
                 }
             };
-            var getDemographicsResult = client.GetDemographics(getDemMessage);
-            var nameElement = getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson.identifiedPerson.name[0];
-            Console.WriteLine(string.Join(" ", nameElement.Items.Select(ni => ni.Text[0])));
+
+            PRPA_IN101308NO getDemographicsResult = client.GetDemographics(getDemMessage);
+
+            string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
+            switch (queryResponseCode)
+            {
+                case "OK":
+                    PN nameElement = getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson.identifiedPerson.name[0];
+                    Console.WriteLine(string.Join(" ", nameElement.Items.Select(ni => ni.Text[0])));
+                    break;
+                case "NF":
+                    Console.WriteLine("No results found");
+                    break;
+                case "QE":
+                    Console.WriteLine("Query parameter error");
+                    break;
+                default:
+                    Console.WriteLine("Unrecognized query response code: '{0}'", queryResponseCode);
+                    break;
+            }
         }
     }
 }
