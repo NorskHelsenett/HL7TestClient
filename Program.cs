@@ -61,7 +61,7 @@ namespace HL7TestClient
             Console.Write("Date of birth ({0}), or blank to skip: ", dateFormat);
             string dateOfBirth = (Console.ReadLine() ?? "").Trim();
 
-            var paramList = new PRPA_MT101306UV02ParameterList(); // {/*personBirthTime = new[] {birthTime}, */personName = new[] {name}};
+            var paramList = new PRPA_MT101306UV02ParameterList();
 
             if (lastName != "" || firstName != "")
             {
