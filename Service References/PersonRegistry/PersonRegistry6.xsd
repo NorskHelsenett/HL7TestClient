@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd1" namespace="urn:hl7-org:v3" />
+  <xs:element name="FindCandidates">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q1:PRPA_IN101305NO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindCandidatesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="FindCandidatesResult" type="q2:PRPA_IN101306NO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographics">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q3:PRPA_IN101307NO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDemographicsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="GetDemographicsResult" type="q4:PRPA_IN101308NO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
