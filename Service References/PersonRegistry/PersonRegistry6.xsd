@@ -4,28 +4,70 @@
   <xs:element name="FindCandidates">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q1:PRPA_IN101305NO" />
+        <xs:element xmlns:q1="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q1:PRPA_IN101305NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="FindCandidatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="FindCandidatesResult" type="q2:PRPA_IN101306NO" />
+        <xs:element xmlns:q2="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="FindCandidatesResult" type="q2:PRPA_IN101306NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDemographics">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q3:PRPA_IN101307NO" />
+        <xs:element xmlns:q3="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="query" type="q3:PRPA_IN101307NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetDemographicsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="GetDemographicsResult" type="q4:PRPA_IN101308NO" />
+        <xs:element xmlns:q4="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="GetDemographicsResult" type="q4:PRPA_IN101308NO01" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordRevised">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q5:PRPA_IN101302UV02" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RecordRevisedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="RecordRevisedResult" type="q6:MCCI_IN000002UV01" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkPersonRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q7:PRPA_IN101901NO01" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LinkPersonRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="LinkPersonRecordsResult" type="q8:MCAI_IN000004NO01" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlinkPersonRecords">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q9:PRPA_IN101911NO01" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnlinkPersonRecordsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="UnlinkPersonRecordsResult" type="q10:MCAI_IN000004NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 using HL7TestClient.Constants;
 using HL7TestClient.Interfaces;
 using HL7TestClient.PersonRegistry;
@@ -61,7 +62,7 @@ namespace HL7TestClient
             Console.Write("Date of birth ({0}), or blank to skip: ", dateFormat);
             string dateOfBirth = (Console.ReadLine() ?? "").Trim();
 
-            var paramList = new PRPA_MT101306UV02ParameterList();
+            var paramList = new PRPA_MT101306NO01ParameterList();
 
             if (lastName != "" || firstName != "")
             {
@@ -80,16 +81,23 @@ namespace HL7TestClient
                     Console.WriteLine("Warning: Date of birth is illegal; skipping");
             }
 
-            var message = new PRPA_IN101305NO {
+            paramList.personAdministrativeGender = new[] {
+                new PRPA_MT101306NO01PersonAdministrativeGender {value = new[] {new CE(), new CE()}},
+                new PRPA_MT101306NO01PersonAdministrativeGender {value = new[] {new CE(), new CE()}},
+            };
+
+            var message = new PRPA_IN101305NO01 {
                 processingCode = ProcessingCode.Test(),
-                controlActProcess = new PRPA_IN101305UV02QUQI_MT021001UV01ControlActProcess {
-                    queryByParameter = new PRPA_MT101306UV02QueryByParameter {
+                controlActProcess = new PRPA_IN101305NO01QUQI_MT021001UV01ControlActProcess {
+                    queryByParameter = new PRPA_MT101306NO01QueryByParameter {
                         parameterList = paramList
                     }
                 }
             };
 
-            PRPA_IN101306NO result = client.FindCandidates(message);
+            new XmlSerializer(typeof (PRPA_IN101305NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, message);
+            PRPA_IN101306NO01 result = client.FindCandidates(message);
+            new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, result);
 
             Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
@@ -105,9 +113,9 @@ namespace HL7TestClient
                 return;
 
             var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
-            var getDemMessage = new PRPA_IN101307NO {
+            var getDemMessage = new PRPA_IN101307NO01 {
                 processingCode = ProcessingCode.Test(),
-                controlActProcess = new PRPA_IN101307UV02QUQI_MT021001UV01ControlActProcess {
+                controlActProcess = new PRPA_IN101307NO01QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101307UV02QueryByParameter {
                         parameterList = new PRPA_MT101307UV02ParameterList {
                             identifiedPersonIdentifier = new[] {
@@ -118,7 +126,9 @@ namespace HL7TestClient
                 }
             };
 
-            PRPA_IN101308NO getDemographicsResult = client.GetDemographics(getDemMessage);
+            new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, getDemMessage);
+            PRPA_IN101308NO01 getDemographicsResult = client.GetDemographics(getDemMessage);
+            new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, getDemographicsResult);
 
             string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
@@ -138,10 +148,10 @@ namespace HL7TestClient
             }
         }
 
-        private static PRPA_MT101306UV02PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
+        private static PRPA_MT101306NO01PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
         {
             return new[] {
-                new PRPA_MT101306UV02PersonName {
+                new PRPA_MT101306NO01PersonName {
                     value = new[] {
                         new PN {
                             Items = nameItems.ToArray()
@@ -151,10 +161,10 @@ namespace HL7TestClient
             };
         }
 
-        private static PRPA_MT101306UV02PersonBirthTime[] CreatePersonBirthTimeParameter(string dateOfBirth)
+        private static PRPA_MT101306NO01PersonBirthTime[] CreatePersonBirthTimeParameter(string dateOfBirth)
         {
             return new[] {
-                new PRPA_MT101306UV02PersonBirthTime {
+                new PRPA_MT101306NO01PersonBirthTime {
                     value = new[] {
                         new IVL_TS {value = dateOfBirth}
                     }

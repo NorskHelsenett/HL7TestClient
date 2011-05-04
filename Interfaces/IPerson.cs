@@ -23,8 +23,8 @@ namespace HL7TestClient.Interfaces
         BL organDonorInd { get; set; }
         AD[] addr { get; set; }
         CE maritalStatusCode { get; set; }
-        string nullFlavor { get; set; }
-        string classCode { get; set; }
-        string determinerCode { get; set; }
+        NullFlavor nullFlavor { get; set; }
+        EntityClass classCode { get; set; }
+        EntityDeterminer determinerCode { get; set; }
     }
 }

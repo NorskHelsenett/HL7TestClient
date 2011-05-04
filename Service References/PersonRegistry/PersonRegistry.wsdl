@@ -119,6 +119,24 @@
   <wsdl:message name="IPersonRegistry_GetDemographics_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDemographicsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPersonRegistry_RecordRevised_InputMessage">
+    <wsdl:part name="parameters" element="tns:RecordRevised" />
+  </wsdl:message>
+  <wsdl:message name="IPersonRegistry_RecordRevised_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RecordRevisedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonRegistry_LinkPersonRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:LinkPersonRecords" />
+  </wsdl:message>
+  <wsdl:message name="IPersonRegistry_LinkPersonRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LinkPersonRecordsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPersonRegistry_UnlinkPersonRecords_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkPersonRecords" />
+  </wsdl:message>
+  <wsdl:message name="IPersonRegistry_UnlinkPersonRecords_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnlinkPersonRecordsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IPersonRegistry">
     <wsdl:operation name="FindCandidates">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/FindCandidates" message="tns:IPersonRegistry_FindCandidates_InputMessage" />
@@ -127,6 +145,18 @@
     <wsdl:operation name="GetDemographics">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/GetDemographics" message="tns:IPersonRegistry_GetDemographics_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/GetDemographicsResponse" message="tns:IPersonRegistry_GetDemographics_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RecordRevised">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/RecordRevised" message="tns:IPersonRegistry_RecordRevised_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/RecordRevisedResponse" message="tns:IPersonRegistry_RecordRevised_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LinkPersonRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/LinkPersonRecords" message="tns:IPersonRegistry_LinkPersonRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/LinkPersonRecordsResponse" message="tns:IPersonRegistry_LinkPersonRecords_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkPersonRecords">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/UnlinkPersonRecords" message="tns:IPersonRegistry_UnlinkPersonRecords_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/UnlinkPersonRecordsResponse" message="tns:IPersonRegistry_UnlinkPersonRecords_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WSHttpBinding_IPersonRegistry" type="tns:IPersonRegistry">
@@ -143,6 +173,33 @@
     </wsdl:operation>
     <wsdl:operation name="GetDemographics">
       <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/GetDemographics" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RecordRevised">
+      <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/RecordRevised" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LinkPersonRecords">
+      <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/LinkPersonRecords" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnlinkPersonRecords">
+      <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/UnlinkPersonRecords" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

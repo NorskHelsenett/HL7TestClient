@@ -49,13 +49,13 @@
     <Compile Include="Constants\IdNumberOid.cs" />
     <Compile Include="Constants\ProcessingCode.cs" />
     <Compile Include="Constants\QueryResponseCode.cs" />
-    <Compile Include="HL7Extensions\PRPA_MT101310UV02IdentifiedPerson.cs" />
-    <Compile Include="HL7Extensions\PRPA_MT101303UV02IdentifiedPerson.cs" />
-    <Compile Include="HL7Extensions\PRPA_MT101303UV02Person.cs" />
+    <Compile Include="HL7Extensions\PRPA_MT101310NO01IdentifiedPerson.cs" />
+    <Compile Include="HL7Extensions\PRPA_MT101303NO01IdentifiedPerson.cs" />
+    <Compile Include="HL7Extensions\PRPA_MT101303NO01Person.cs" />
     <Compile Include="HL7Extensions\engiven.cs" />
     <Compile Include="HL7Extensions\CS.cs" />
     <Compile Include="HL7Extensions\enfamily.cs" />
-    <Compile Include="HL7Extensions\PRPA_MT101310UV02Person.cs" />
+    <Compile Include="HL7Extensions\PRPA_MT101310NO01Person.cs" />
     <Compile Include="Interfaces\IIdentifiedPerson.cs" />
     <Compile Include="Interfaces\IPerson.cs" />
     <Compile Include="Program.cs" />
@@ -73,18 +73,24 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.MCAI_IN000004NO01.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.MCCI_IN000002UV01.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101306NO01.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101308NO01.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\PersonRegistry\PersonRegistry.wsdl" />
     <None Include="Service References\PersonRegistry\PersonRegistry5.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Service References\PersonRegistry\PersonRegistry6.xsd">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101306NO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101308NO.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

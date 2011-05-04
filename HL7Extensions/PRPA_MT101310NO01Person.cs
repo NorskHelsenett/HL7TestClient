@@ -2,7 +2,7 @@
 
 namespace HL7TestClient.PersonRegistry
 {
-    public partial class PRPA_MT101303UV02Person : IPerson
+    public partial class PRPA_MT101310NO01Person : IPerson
     {
     }
 }
