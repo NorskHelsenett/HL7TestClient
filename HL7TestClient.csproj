@@ -49,6 +49,7 @@
     <Compile Include="Constants\IdNumberOid.cs" />
     <Compile Include="Constants\ProcessingCode.cs" />
     <Compile Include="Constants\QueryResponseCode.cs" />
+    <Compile Include="HL7Extensions\II.cs" />
     <Compile Include="HL7Extensions\PRPA_MT101310NO01IdentifiedPerson.cs" />
     <Compile Include="HL7Extensions\PRPA_MT101303NO01IdentifiedPerson.cs" />
     <Compile Include="HL7Extensions\PRPA_MT101303NO01Person.cs" />
