@@ -102,8 +102,10 @@ namespace HL7TestClient
             };
 
             FindCandidatesRequestSerializer.Serialize(Console.Out, message);
+            Console.WriteLine();
             PRPA_IN101306NO01 result = client.FindCandidates(message);
             FindCandidatesResponseSerializer.Serialize(Console.Out, result);
+            Console.WriteLine();
 
             Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
@@ -133,8 +135,10 @@ namespace HL7TestClient
             };
 
             GetDemographicsRequestSerializer.Serialize(Console.Out, getDemMessage);
+            Console.WriteLine();
             PRPA_IN101308NO01 getDemographicsResult = client.GetDemographics(getDemMessage);
             GetDemographicsResponseSerializer.Serialize(Console.Out, getDemographicsResult);
+            Console.WriteLine();
 
             string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
