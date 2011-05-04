@@ -14,6 +14,12 @@ namespace HL7TestClient
 {
     class Program
     {
+        private const string RootNamespace = "urn:hl7-org:v3";
+        private static readonly XmlSerializer FindCandidatesRequestSerializer = new XmlSerializer(typeof (PRPA_IN101305NO01), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer FindCandidatesResponseSerializer = new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer GetDemographicsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer GetDemographicsResponseSerializer = new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = RootNamespace});
+
         static void Main()
         {
             var client = CreateClient();
@@ -95,9 +101,9 @@ namespace HL7TestClient
                 }
             };
 
-            new XmlSerializer(typeof (PRPA_IN101305NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, message);
+            FindCandidatesRequestSerializer.Serialize(Console.Out, message);
             PRPA_IN101306NO01 result = client.FindCandidates(message);
-            new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, result);
+            FindCandidatesResponseSerializer.Serialize(Console.Out, result);
 
             Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
@@ -126,9 +132,9 @@ namespace HL7TestClient
                 }
             };
 
-            new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, getDemMessage);
+            GetDemographicsRequestSerializer.Serialize(Console.Out, getDemMessage);
             PRPA_IN101308NO01 getDemographicsResult = client.GetDemographics(getDemMessage);
-            new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = "urn:hl7-org:v3"}).Serialize(Console.Out, getDemographicsResult);
+            GetDemographicsResponseSerializer.Serialize(Console.Out, getDemographicsResult);
 
             string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
