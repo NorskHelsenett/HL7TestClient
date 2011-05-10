@@ -20,6 +20,7 @@ namespace HL7TestClient
         private static readonly XmlSerializer GetDemographicsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer GetDemographicsResponseSerializer = new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer LinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101901NO01), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer UnlinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101911NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer AcknowledgementSerializer = new XmlSerializer(typeof (MCAI_IN000004NO01), new XmlRootAttribute {Namespace = RootNamespace});
 
         static void Main()
@@ -39,6 +40,8 @@ namespace HL7TestClient
                             GetDemographics(client);
                         else if (action == "L")
                             LinkPersonRecords(client);
+                        else if (action == "U")
+                            UnlinkPersonRecords(client);
                         else if (action == "E")
                             break;
                     }
@@ -198,6 +201,44 @@ namespace HL7TestClient
             LinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
             MCAI_IN000004NO01 response = client.LinkPersonRecords(request);
+            AcknowledgementSerializer.Serialize(Console.Out, response);
+            Console.WriteLine();
+        }
+
+        private static void UnlinkPersonRecords(PersonRegistryClient client)
+        {
+            const string fhNumberOid = "2.16.578.1.12.4.1.4.3";
+            Console.Write("Enter child FH-number: ");
+            string obsoleteFhNumber = Console.ReadLine();
+            Console.Write("Enter parent ID-number or FH-number: ");
+            string survivingIdNumberOrFhNumber = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(obsoleteFhNumber) || string.IsNullOrWhiteSpace(survivingIdNumberOrFhNumber))
+                return;
+
+            var request = new PRPA_IN101911NO01 {
+                processingCode = ProcessingCode.Test(),
+                controlActProcess = new PRPA_IN101911NO01MFMI_MT700721UV01ControlActProcess {
+                    subject = new PRPA_IN101911NO01MFMI_MT700721UV01Subject1 {
+                        registrationRequest = new PRPA_IN101911NO01MFMI_MT700721UV01RegistrationRequest {
+                            subject1 = new PRPA_IN101911NO01MFMI_MT700721UV01Subject2 {
+                                identifiedPerson = new PRPA_MT101911NO01IdentifiedPerson {
+                                    id = new[] {new II(fhNumberOid, survivingIdNumberOrFhNumber)}, //TODO: Select OID based on type of surviving number
+                                    identifiedBy = new PRPA_MT101911NO01SourceOf2 {
+                                        //TODO: Is the value of statusCode important?
+                                        otherIdentifiedPerson = new PRPA_MT101911NO01OtherIdentifiedPerson {
+                                            id = new II(fhNumberOid, obsoleteFhNumber)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            UnlinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
+            Console.WriteLine();
+            MCAI_IN000004NO01 response = client.UnlinkPersonRecords(request);
             AcknowledgementSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
         }

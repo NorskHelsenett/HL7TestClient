@@ -83,62 +83,59 @@
       <xs:enumeration value="UNK" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="CR">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:ANY">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="1" name="name" type="tns:CV" />
-          <xs:element minOccurs="0" maxOccurs="1" name="value" type="tns:CD" />
-        </xs:sequence>
-        <xs:attribute default="false" name="inverted" type="xs:boolean" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="II">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:ANY">
-        <xs:attribute name="root" type="xs:string" />
-        <xs:attribute name="extension" type="xs:string" />
-        <xs:attribute name="assigningAuthorityName" type="xs:string" />
-        <xs:attribute name="displayable" type="xs:boolean" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="EN" mixed="true">
+  <xs:complexType name="AD" mixed="true">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ANY">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="delimiter" type="tns:en.delimiter" />
-            <xs:element minOccurs="0" maxOccurs="1" name="prefix" type="tns:en.prefix" />
-            <xs:element minOccurs="0" maxOccurs="1" name="given" type="tns:en.given" />
-            <xs:element minOccurs="0" maxOccurs="1" name="family" type="tns:en.family" />
-            <xs:element minOccurs="0" maxOccurs="1" name="suffix" type="tns:en.suffix" />
+            <xs:element minOccurs="0" maxOccurs="1" name="additionalLocator" type="tns:adxp.additionalLocator" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryModeIdentifier" type="tns:adxp.deliveryModeIdentifier" />
+            <xs:element minOccurs="0" maxOccurs="1" name="direction" type="tns:adxp.direction" />
+            <xs:element minOccurs="0" maxOccurs="1" name="buildingNumberSuffix" type="tns:adxp.buildingNumberSuffix" />
+            <xs:element minOccurs="0" maxOccurs="1" name="careOf" type="tns:adxp.careOf" />
+            <xs:element minOccurs="0" maxOccurs="1" name="censusTract" type="tns:adxp.censusTract" />
+            <xs:element minOccurs="0" maxOccurs="1" name="city" type="tns:adxp.city" />
+            <xs:element minOccurs="0" maxOccurs="1" name="country" type="tns:adxp.country" />
+            <xs:element minOccurs="0" maxOccurs="1" name="county" type="tns:adxp.county" />
+            <xs:element minOccurs="0" maxOccurs="1" name="delimiter" type="tns:adxp.delimiter" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryAddressLine" type="tns:adxp.deliveryAddressLine" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationArea" type="tns:adxp.deliveryInstallationArea" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationQualifier" type="tns:adxp.deliveryInstallationQualifier" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationType" type="tns:adxp.deliveryInstallationType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="deliveryMode" type="tns:adxp.deliveryMode" />
+            <xs:element minOccurs="0" maxOccurs="1" name="streetAddressLine" type="tns:adxp.streetAddressLine" />
+            <xs:element minOccurs="0" maxOccurs="1" name="houseNumber" type="tns:adxp.houseNumber" />
+            <xs:element minOccurs="0" maxOccurs="1" name="houseNumberNumeric" type="tns:adxp.houseNumberNumeric" />
+            <xs:element minOccurs="0" maxOccurs="1" name="unitType" type="tns:adxp.unitType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="postalCode" type="tns:adxp.postalCode" />
+            <xs:element minOccurs="0" maxOccurs="1" name="precinct" type="tns:adxp.precinct" />
+            <xs:element minOccurs="0" maxOccurs="1" name="state" type="tns:adxp.state" />
+            <xs:element minOccurs="0" maxOccurs="1" name="postBox" type="tns:adxp.postBox" />
+            <xs:element minOccurs="0" maxOccurs="1" name="streetName" type="tns:adxp.streetName" />
+            <xs:element minOccurs="0" maxOccurs="1" name="streetNameBase" type="tns:adxp.streetNameBase" />
+            <xs:element minOccurs="0" maxOccurs="1" name="streetNameType" type="tns:adxp.streetNameType" />
+            <xs:element minOccurs="0" maxOccurs="1" name="unitID" type="tns:adxp.unitID" />
           </xs:choice>
-          <xs:element minOccurs="0" maxOccurs="1" name="validTime" type="tns:IVL_TS" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="useablePeriod" type="tns:SXCM_TS" />
         </xs:sequence>
         <xs:attribute name="use" use="required">
           <xs:simpleType>
-            <xs:list itemType="tns:EntityNameUse" />
+            <xs:list itemType="tns:PostalAddressUse" />
           </xs:simpleType>
         </xs:attribute>
+        <xs:attribute name="isNotOrdered" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="en.delimiter">
+  <xs:complexType name="adxp.additionalLocator">
     <xs:complexContent mixed="true">
-      <xs:extension base="tns:ENXP" />
+      <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="ENXP">
+  <xs:complexType name="ADXP">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ST">
-        <xs:attribute name="partType" type="tns:EntityNamePartType" />
-        <xs:attribute name="qualifier" use="required">
-          <xs:simpleType>
-            <xs:list itemType="tns:EntityNamePartQualifier" />
-          </xs:simpleType>
-        </xs:attribute>
+        <xs:attribute name="partType" type="tns:AddressPartType" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -213,6 +210,31 @@
   <xs:complexType name="QTY" abstract="true">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ANY" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RTO_QTY_QTY">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:QTY">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:QTY" />
+          <xs:element minOccurs="0" maxOccurs="1" name="denominator" type="tns:QTY" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RTO">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:RTO_QTY_QTY" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="RTO_PQ_PQ">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:QTY">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:PQ" />
+          <xs:element minOccurs="0" maxOccurs="1" name="denominator" type="tns:PQ" />
+        </xs:sequence>
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="PQ">
@@ -300,13 +322,6 @@
       <xs:enumeration value="X2" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="IVXB_PPD_PQ">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:PPD_PQ">
-        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="SXCM_PPD_PQ">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:PPD_PQ">
@@ -319,12 +334,19 @@
       <xs:extension base="tns:SXCM_PPD_PQ">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:PPD_PQ" />
+            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:PPD_PQ" />
             <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_PPD_PQ" />
             <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_PPD_PQ" />
-            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:PPD_PQ" />
+            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:PPD_PQ" />
           </xs:choice>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVXB_PPD_PQ">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PPD_PQ">
+        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -358,13 +380,73 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="RTO_MO_PQ">
+  <xs:complexType name="REAL">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:QTY">
+        <xs:attribute name="value" type="xs:string" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SXCM_REAL">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:REAL">
+        <xs:attribute default="I" name="operator" type="tns:SetOperator" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVL_REAL">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SXCM_REAL">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:MO" />
-          <xs:element minOccurs="0" maxOccurs="1" name="denominator" type="tns:PQ" />
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:REAL" />
+            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:REAL" />
+            <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_REAL" />
+            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_REAL" />
+          </xs:choice>
         </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVXB_REAL">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:REAL">
+        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="INT">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:QTY">
+        <xs:attribute name="value" type="xs:integer" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SXCM_INT">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:INT">
+        <xs:attribute default="I" name="operator" type="tns:SetOperator" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVL_INT">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:SXCM_INT">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_INT" />
+            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_INT" />
+            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:INT" />
+            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:INT" />
+          </xs:choice>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVXB_INT">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:INT">
+        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -389,9 +471,9 @@
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:MO" />
-            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:MO" />
             <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_MO" />
             <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_MO" />
+            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:MO" />
           </xs:choice>
         </xs:sequence>
       </xs:extension>
@@ -404,105 +486,13 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="INT">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:QTY">
-        <xs:attribute name="value" type="xs:integer" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IVXB_INT">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:INT">
-        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="SXCM_INT">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:INT">
-        <xs:attribute default="I" name="operator" type="tns:SetOperator" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IVL_INT">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:SXCM_INT">
-        <xs:sequence>
-          <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_INT" />
-            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:INT" />
-            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_INT" />
-            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:INT" />
-          </xs:choice>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="REAL">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:QTY">
-        <xs:attribute name="value" type="xs:string" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="SXCM_REAL">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:REAL">
-        <xs:attribute default="I" name="operator" type="tns:SetOperator" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IVL_REAL">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:SXCM_REAL">
-        <xs:sequence>
-          <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_REAL" />
-            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:REAL" />
-            <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:REAL" />
-            <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_REAL" />
-          </xs:choice>
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IVXB_REAL">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:REAL">
-        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RTO_PQ_PQ">
+  <xs:complexType name="RTO_MO_PQ">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:QTY">
         <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:PQ" />
+          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:MO" />
           <xs:element minOccurs="0" maxOccurs="1" name="denominator" type="tns:PQ" />
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RTO_QTY_QTY">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:QTY">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="1" name="numerator" type="tns:QTY" />
-          <xs:element minOccurs="0" maxOccurs="1" name="denominator" type="tns:QTY" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="RTO">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:RTO_QTY_QTY" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="UVP_TS">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:TS">
-        <xs:attribute name="probability" type="xs:double" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -513,6 +503,13 @@
           <xs:element minOccurs="0" maxOccurs="1" name="standardDeviation" type="tns:PQ" />
         </xs:sequence>
         <xs:attribute name="distributionType" type="tns:ProbabilityDistributionType" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="IVXB_PPD_TS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:PPD_TS">
+        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -540,19 +537,12 @@
       <xs:extension base="tns:SXCM_PPD_TS">
         <xs:sequence>
           <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:PPD_TS" />
-            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_PPD_TS" />
             <xs:element minOccurs="0" maxOccurs="1" name="width" type="tns:PPD_PQ" />
+            <xs:element minOccurs="0" maxOccurs="1" name="center" type="tns:PPD_TS" />
             <xs:element minOccurs="0" maxOccurs="1" name="high" type="tns:IVXB_PPD_TS" />
+            <xs:element minOccurs="0" maxOccurs="1" name="low" type="tns:IVXB_PPD_TS" />
           </xs:choice>
         </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="IVXB_PPD_TS">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:PPD_TS">
-        <xs:attribute default="true" name="inclusive" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -596,6 +586,13 @@
   <xs:complexType name="EIVL.event">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CE" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="UVP_TS">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:TS">
+        <xs:attribute name="probability" type="xs:double" />
+      </xs:extension>
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="PIVL_TS">
@@ -665,11 +662,77 @@
       <xs:enumeration value="SHA-256" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="ADXP">
+  <xs:complexType name="SC">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ST">
-        <xs:attribute name="partType" type="tns:AddressPartType" />
+        <xs:attribute name="code" type="xs:token" />
+        <xs:attribute name="codeSystem" type="xs:string" />
+        <xs:attribute name="codeSystemName" type="xs:string" />
+        <xs:attribute name="codeSystemVersion" type="xs:string" />
+        <xs:attribute name="displayName" type="xs:string" />
       </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="ENXP">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ST">
+        <xs:attribute name="partType" type="tns:EntityNamePartType" />
+        <xs:attribute name="qualifier" use="required">
+          <xs:simpleType>
+            <xs:list itemType="tns:EntityNamePartQualifier" />
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="EntityNamePartType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DEL" />
+      <xs:enumeration value="FAM" />
+      <xs:enumeration value="GIV" />
+      <xs:enumeration value="PFX" />
+      <xs:enumeration value="SFX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntityNamePartQualifier">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AC" />
+      <xs:enumeration value="AD" />
+      <xs:enumeration value="BR" />
+      <xs:enumeration value="CL" />
+      <xs:enumeration value="IN" />
+      <xs:enumeration value="LS" />
+      <xs:enumeration value="NB" />
+      <xs:enumeration value="PR" />
+      <xs:enumeration value="SP" />
+      <xs:enumeration value="TITLE" />
+      <xs:enumeration value="VV" />
+      <xs:enumeration value="MID" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="en.delimiter">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ENXP" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en.family">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ENXP" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en.given">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ENXP" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en.prefix">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ENXP" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="en.suffix">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ENXP" />
     </xs:complexContent>
   </xs:complexType>
   <xs:simpleType name="AddressPartType">
@@ -704,22 +767,7 @@
       <xs:enumeration value="ZIP" />
     </xs:restriction>
   </xs:simpleType>
-  <xs:complexType name="adxp.censusTract">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="adxp.postBox">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="adxp.precinct">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="adxp.city">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
@@ -744,7 +792,7 @@
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="adxp.buildingNumberSuffix">
+  <xs:complexType name="adxp.streetNameType">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
@@ -784,16 +832,6 @@
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="adxp.streetNameType">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="adxp.additionalLocator">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="adxp.unitID">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ADXP" />
@@ -805,6 +843,11 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:complexType name="adxp.careOf">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:ADXP" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="adxp.censusTract">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
@@ -829,140 +872,29 @@
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="adxp.deliveryModeIdentifier">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ADXP" />
-    </xs:complexContent>
-  </xs:complexType>
   <xs:complexType name="adxp.deliveryMode">
     <xs:complexContent mixed="true">
       <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="SC">
+  <xs:complexType name="adxp.deliveryModeIdentifier">
     <xs:complexContent mixed="true">
-      <xs:extension base="tns:ST">
-        <xs:attribute name="code" type="xs:token" />
-        <xs:attribute name="codeSystem" type="xs:string" />
-        <xs:attribute name="codeSystemName" type="xs:string" />
-        <xs:attribute name="codeSystemVersion" type="xs:string" />
-        <xs:attribute name="displayName" type="xs:string" />
-      </xs:extension>
+      <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:simpleType name="EntityNamePartType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="DEL" />
-      <xs:enumeration value="FAM" />
-      <xs:enumeration value="GIV" />
-      <xs:enumeration value="PFX" />
-      <xs:enumeration value="SFX" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EntityNamePartQualifier">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="AC" />
-      <xs:enumeration value="AD" />
-      <xs:enumeration value="BR" />
-      <xs:enumeration value="CL" />
-      <xs:enumeration value="IN" />
-      <xs:enumeration value="LS" />
-      <xs:enumeration value="NB" />
-      <xs:enumeration value="PR" />
-      <xs:enumeration value="SP" />
-      <xs:enumeration value="TITLE" />
-      <xs:enumeration value="VV" />
-      <xs:enumeration value="MID" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="en.given">
+  <xs:complexType name="adxp.buildingNumberSuffix">
     <xs:complexContent mixed="true">
-      <xs:extension base="tns:ENXP" />
+      <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="en.family">
+  <xs:complexType name="adxp.postBox">
     <xs:complexContent mixed="true">
-      <xs:extension base="tns:ENXP" />
+      <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="en.suffix">
+  <xs:complexType name="adxp.city">
     <xs:complexContent mixed="true">
-      <xs:extension base="tns:ENXP" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="en.prefix">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:ENXP" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:simpleType name="EntityNameUse">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="ABC" />
-      <xs:enumeration value="C" />
-      <xs:enumeration value="IDE" />
-      <xs:enumeration value="L" />
-      <xs:enumeration value="OR" />
-      <xs:enumeration value="SYL" />
-      <xs:enumeration value="OLD" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="TN">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:EN" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="ON">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:EN" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="PN">
-    <xs:complexContent mixed="true">
-      <xs:extension base="tns:EN" />
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:complexType name="AD" mixed="true">
-    <xs:complexContent mixed="false">
-      <xs:extension base="tns:ANY">
-        <xs:sequence>
-          <xs:choice minOccurs="0" maxOccurs="unbounded">
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryMode" type="tns:adxp.deliveryMode" />
-            <xs:element minOccurs="0" maxOccurs="1" name="postalCode" type="tns:adxp.postalCode" />
-            <xs:element minOccurs="0" maxOccurs="1" name="precinct" type="tns:adxp.precinct" />
-            <xs:element minOccurs="0" maxOccurs="1" name="state" type="tns:adxp.state" />
-            <xs:element minOccurs="0" maxOccurs="1" name="streetAddressLine" type="tns:adxp.streetAddressLine" />
-            <xs:element minOccurs="0" maxOccurs="1" name="streetName" type="tns:adxp.streetName" />
-            <xs:element minOccurs="0" maxOccurs="1" name="streetNameBase" type="tns:adxp.streetNameBase" />
-            <xs:element minOccurs="0" maxOccurs="1" name="streetNameType" type="tns:adxp.streetNameType" />
-            <xs:element minOccurs="0" maxOccurs="1" name="unitID" type="tns:adxp.unitID" />
-            <xs:element minOccurs="0" maxOccurs="1" name="unitType" type="tns:adxp.unitType" />
-            <xs:element minOccurs="0" maxOccurs="1" name="delimiter" type="tns:adxp.delimiter" />
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryAddressLine" type="tns:adxp.deliveryAddressLine" />
-            <xs:element minOccurs="0" maxOccurs="1" name="houseNumberNumeric" type="tns:adxp.houseNumberNumeric" />
-            <xs:element minOccurs="0" maxOccurs="1" name="buildingNumberSuffix" type="tns:adxp.buildingNumberSuffix" />
-            <xs:element minOccurs="0" maxOccurs="1" name="careOf" type="tns:adxp.careOf" />
-            <xs:element minOccurs="0" maxOccurs="1" name="censusTract" type="tns:adxp.censusTract" />
-            <xs:element minOccurs="0" maxOccurs="1" name="city" type="tns:adxp.city" />
-            <xs:element minOccurs="0" maxOccurs="1" name="country" type="tns:adxp.country" />
-            <xs:element minOccurs="0" maxOccurs="1" name="county" type="tns:adxp.county" />
-            <xs:element minOccurs="0" maxOccurs="1" name="postBox" type="tns:adxp.postBox" />
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationArea" type="tns:adxp.deliveryInstallationArea" />
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationQualifier" type="tns:adxp.deliveryInstallationQualifier" />
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryInstallationType" type="tns:adxp.deliveryInstallationType" />
-            <xs:element minOccurs="0" maxOccurs="1" name="additionalLocator" type="tns:adxp.additionalLocator" />
-            <xs:element minOccurs="0" maxOccurs="1" name="deliveryModeIdentifier" type="tns:adxp.deliveryModeIdentifier" />
-            <xs:element minOccurs="0" maxOccurs="1" name="direction" type="tns:adxp.direction" />
-            <xs:element minOccurs="0" maxOccurs="1" name="houseNumber" type="tns:adxp.houseNumber" />
-          </xs:choice>
-          <xs:element minOccurs="0" maxOccurs="unbounded" name="useablePeriod" type="tns:SXCM_TS" />
-        </xs:sequence>
-        <xs:attribute name="use" use="required">
-          <xs:simpleType>
-            <xs:list itemType="tns:PostalAddressUse" />
-          </xs:simpleType>
-        </xs:attribute>
-        <xs:attribute name="isNotOrdered" type="xs:boolean" />
-      </xs:extension>
+      <xs:extension base="tns:ADXP" />
     </xs:complexContent>
   </xs:complexType>
   <xs:simpleType name="PostalAddressUse">
@@ -980,6 +912,64 @@
       <xs:enumeration value="PST" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="EN" mixed="true">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ANY">
+        <xs:sequence>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element minOccurs="0" maxOccurs="1" name="suffix" type="tns:en.suffix" />
+            <xs:element minOccurs="0" maxOccurs="1" name="prefix" type="tns:en.prefix" />
+            <xs:element minOccurs="0" maxOccurs="1" name="given" type="tns:en.given" />
+            <xs:element minOccurs="0" maxOccurs="1" name="delimiter" type="tns:en.delimiter" />
+            <xs:element minOccurs="0" maxOccurs="1" name="family" type="tns:en.family" />
+          </xs:choice>
+          <xs:element minOccurs="0" maxOccurs="1" name="validTime" type="tns:IVL_TS" />
+        </xs:sequence>
+        <xs:attribute name="use" use="required">
+          <xs:simpleType>
+            <xs:list itemType="tns:EntityNameUse" />
+          </xs:simpleType>
+        </xs:attribute>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="EntityNameUse">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ABC" />
+      <xs:enumeration value="C" />
+      <xs:enumeration value="IDE" />
+      <xs:enumeration value="L" />
+      <xs:enumeration value="OR" />
+      <xs:enumeration value="SYL" />
+      <xs:enumeration value="OLD" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ON">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:EN" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PN">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:EN" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="TN">
+    <xs:complexContent mixed="true">
+      <xs:extension base="tns:EN" />
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SLIST_PQ">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:ANY">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="origin" type="tns:PQ" />
+          <xs:element minOccurs="0" maxOccurs="1" name="scale" type="tns:PQ" />
+          <xs:element minOccurs="0" maxOccurs="1" name="digits" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
   <xs:complexType name="SLIST_TS">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ANY">
@@ -1034,21 +1024,24 @@
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="SLIST_PQ">
+  <xs:complexType name="II">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:ANY">
-        <xs:sequence>
-          <xs:element minOccurs="0" maxOccurs="1" name="origin" type="tns:PQ" />
-          <xs:element minOccurs="0" maxOccurs="1" name="scale" type="tns:PQ" />
-          <xs:element minOccurs="0" maxOccurs="1" name="digits" type="xs:string" />
-        </xs:sequence>
+        <xs:attribute name="root" type="xs:string" />
+        <xs:attribute name="extension" type="xs:string" />
+        <xs:attribute name="assigningAuthorityName" type="xs:string" />
+        <xs:attribute name="displayable" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
-  <xs:complexType name="BXIT_CD">
+  <xs:complexType name="CR">
     <xs:complexContent mixed="false">
-      <xs:extension base="tns:CD">
-        <xs:attribute default="1" name="qty" type="xs:integer" />
+      <xs:extension base="tns:ANY">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="1" name="name" type="tns:CV" />
+          <xs:element minOccurs="0" maxOccurs="1" name="value" type="tns:CD" />
+        </xs:sequence>
+        <xs:attribute default="false" name="inverted" type="xs:boolean" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -1056,6 +1049,13 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:CD">
         <xs:attribute default="I" name="operator" type="tns:SetOperator" />
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="BXIT_CD">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:CD">
+        <xs:attribute default="1" name="qty" type="xs:integer" />
       </xs:extension>
     </xs:complexContent>
   </xs:complexType>
@@ -1135,75 +1135,12 @@
       <xs:element minOccurs="0" maxOccurs="unbounded" name="addr" type="tns:AD" />
       <xs:element minOccurs="0" maxOccurs="unbounded" name="telecom" type="tns:TEL" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="contactOrganization" nillable="true" type="tns:COCT_MT150003UV03.Organization" />
         <xs:element minOccurs="1" maxOccurs="1" name="contactPerson" nillable="true" type="tns:COCT_MT030203UV07.Person" />
+        <xs:element minOccurs="1" maxOccurs="1" name="contactOrganization" nillable="true" type="tns:COCT_MT150003UV03.Organization" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="classCode" type="tns:RoleClassContact" use="required" />
   </xs:complexType>
-  <xs:complexType name="COCT_MT150003UV03.Organization">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
-      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="id" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="1" name="code" type="tns:CE" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="name" type="tns:ON" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="contactParty" nillable="true" type="tns:COCT_MT150003UV03.ContactParty" />
-    </xs:sequence>
-    <xs:attribute name="classCode" type="tns:EntityClassOrganization" use="required" />
-    <xs:attribute name="determinerCode" type="tns:EntityDeterminerSpecific" use="required" />
-  </xs:complexType>
-  <xs:complexType name="COCT_MT150003UV03.ContactParty">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
-      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="id" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="1" name="code" type="tns:CE" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="addr" type="tns:AD" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="telecom" type="tns:TEL" />
-      <xs:element minOccurs="0" maxOccurs="1" name="contactPerson" type="tns:COCT_MT150003UV03.Person" />
-    </xs:sequence>
-    <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
-    <xs:attribute name="classCode" type="tns:RoleClassContact" use="required" />
-  </xs:complexType>
-  <xs:complexType name="COCT_MT150003UV03.Person">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
-      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="name" type="tns:EN" />
-    </xs:sequence>
-    <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
-    <xs:attribute name="classCode" type="tns:EntityClassPerson" use="required" />
-    <xs:attribute name="determinerCode" type="tns:EntityDeterminerSpecific" use="required" />
-  </xs:complexType>
-  <xs:simpleType name="EntityClassPerson">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="PSN" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EntityDeterminerSpecific">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="INSTANCE" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="RoleClassContact">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="CON" />
-      <xs:enumeration value="ECON" />
-      <xs:enumeration value="NOK" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="EntityClassOrganization">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="NAT" />
-      <xs:enumeration value="ORG" />
-      <xs:enumeration value="PUB" />
-      <xs:enumeration value="STATE" />
-    </xs:restriction>
-  </xs:simpleType>
   <xs:complexType name="COCT_MT030203UV07.Person">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
@@ -1268,6 +1205,69 @@
       <xs:enumeration value="INSTANCE" />
       <xs:enumeration value="KIND" />
       <xs:enumeration value="QUANTIFIED_KIND" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="COCT_MT150003UV03.Organization">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
+      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="id" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="1" name="code" type="tns:CE" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="name" type="tns:ON" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="contactParty" nillable="true" type="tns:COCT_MT150003UV03.ContactParty" />
+    </xs:sequence>
+    <xs:attribute name="classCode" type="tns:EntityClassOrganization" use="required" />
+    <xs:attribute name="determinerCode" type="tns:EntityDeterminerSpecific" use="required" />
+  </xs:complexType>
+  <xs:complexType name="COCT_MT150003UV03.ContactParty">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
+      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="id" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="1" name="code" type="tns:CE" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="addr" type="tns:AD" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="telecom" type="tns:TEL" />
+      <xs:element minOccurs="0" maxOccurs="1" name="contactPerson" type="tns:COCT_MT150003UV03.Person" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
+    <xs:attribute name="classCode" type="tns:RoleClassContact" use="required" />
+  </xs:complexType>
+  <xs:complexType name="COCT_MT150003UV03.Person">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="realmCode" type="tns:CS" />
+      <xs:element minOccurs="0" maxOccurs="1" name="typeId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="templateId" type="tns:II" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="name" type="tns:EN" />
+    </xs:sequence>
+    <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
+    <xs:attribute name="classCode" type="tns:EntityClassPerson" use="required" />
+    <xs:attribute name="determinerCode" type="tns:EntityDeterminerSpecific" use="required" />
+  </xs:complexType>
+  <xs:simpleType name="EntityClassPerson">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PSN" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntityDeterminerSpecific">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INSTANCE" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="RoleClassContact">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CON" />
+      <xs:enumeration value="ECON" />
+      <xs:enumeration value="NOK" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="EntityClassOrganization">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NAT" />
+      <xs:enumeration value="ORG" />
+      <xs:enumeration value="PUB" />
+      <xs:enumeration value="STATE" />
     </xs:restriction>
   </xs:simpleType>
   <xs:simpleType name="RoleClassAgent">
@@ -2093,8 +2093,8 @@
       <xs:element minOccurs="0" maxOccurs="1" name="signatureCode" type="tns:CE" />
       <xs:element minOccurs="0" maxOccurs="1" name="signatureText" type="tns:ED" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
         <xs:element minOccurs="1" maxOccurs="1" name="assignedDevice" nillable="true" type="tns:COCT_MT090300UV01.AssignedDevice" />
+        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
@@ -2996,8 +2996,8 @@
       <xs:element minOccurs="0" maxOccurs="1" name="signatureCode" type="tns:CE" />
       <xs:element minOccurs="0" maxOccurs="1" name="signatureText" type="tns:ED" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
         <xs:element minOccurs="1" maxOccurs="1" name="assignedDevice" nillable="true" type="tns:COCT_MT090300UV01.AssignedDevice" />
+        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
@@ -3401,8 +3401,8 @@
       <xs:element minOccurs="0" maxOccurs="1" name="effectiveTime" type="tns:IVL_TS" />
       <xs:element minOccurs="0" maxOccurs="1" name="certificateText" type="tns:ED" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="guardianPerson" nillable="true" type="tns:COCT_MT030207UV07.Person" />
         <xs:element minOccurs="1" maxOccurs="1" name="guardianOrganization" nillable="true" type="tns:COCT_MT150007UV.Organization" />
+        <xs:element minOccurs="1" maxOccurs="1" name="guardianPerson" nillable="true" type="tns:COCT_MT030207UV07.Person" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
@@ -4514,8 +4514,8 @@
       <xs:element minOccurs="0" maxOccurs="1" name="signatureCode" type="tns:CE" />
       <xs:element minOccurs="0" maxOccurs="1" name="signatureText" type="tns:ED" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="assignedDevice" nillable="true" type="tns:COCT_MT090300UV01.AssignedDevice" />
         <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
+        <xs:element minOccurs="1" maxOccurs="1" name="assignedDevice" nillable="true" type="tns:COCT_MT090300UV01.AssignedDevice" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
@@ -5266,8 +5266,8 @@
       <xs:element minOccurs="0" maxOccurs="1" name="signatureCode" type="tns:CE" />
       <xs:element minOccurs="0" maxOccurs="1" name="signatureText" type="tns:ED" />
       <xs:choice minOccurs="1" maxOccurs="1">
-        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
         <xs:element minOccurs="1" maxOccurs="1" name="assignedDevice" nillable="true" type="tns:COCT_MT090300UV01.AssignedDevice" />
+        <xs:element minOccurs="1" maxOccurs="1" name="assignedPerson" nillable="true" type="tns:COCT_MT090100UV01.AssignedPerson" />
       </xs:choice>
     </xs:sequence>
     <xs:attribute name="nullFlavor" type="tns:NullFlavor" />
