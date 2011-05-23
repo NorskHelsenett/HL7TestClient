@@ -192,7 +192,6 @@ namespace HL7TestClient
 
         private static void LinkPersonRecords(PersonRegistryClient client)
         {
-            const string fhNumberOid = "2.16.578.1.12.4.1.4.3";
             Console.Write("Enter obsolete FH-number: ");
             string obsoleteFhNumber = Console.ReadLine();
             Console.Write("Enter surviving ID-number or FH-number: ");
@@ -207,12 +206,12 @@ namespace HL7TestClient
                         registrationRequest = new PRPA_IN101901NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101901NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101901NO01IdentifiedPerson {
-                                    id = new[] {new II(fhNumberOid, survivingIdNumberOrFhNumber)}, //TODO: Select OID based on type of surviving number
+                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)}, 
                                     identifiedBy = new[] {
                                         new PRPA_MT101901NO01SourceOf2 {
                                             //TODO: Is the value of statusCode important?
                                             otherIdentifiedPerson = new PRPA_MT101901NO01OtherIdentifiedPerson {
-                                                id = new II(fhNumberOid, obsoleteFhNumber)
+                                                id = new II(GetOid(obsoleteFhNumber), obsoleteFhNumber)
                                             }
                                         }
                                     }
@@ -247,11 +246,11 @@ namespace HL7TestClient
                         registrationRequest = new PRPA_IN101911NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101911NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101911NO01IdentifiedPerson {
-                                    id = new[] {new II(fhNumberOid, survivingIdNumberOrFhNumber)}, //TODO: Select OID based on type of surviving number
+                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)}, 
                                     identifiedBy = new PRPA_MT101911NO01SourceOf2 {
                                         //TODO: Is the value of statusCode important?
                                         otherIdentifiedPerson = new PRPA_MT101911NO01OtherIdentifiedPerson {
-                                            id = new II(fhNumberOid, obsoleteFhNumber)
+                                            id = new II(GetOid(obsoleteFhNumber), obsoleteFhNumber)
                                         }
                                     }
                                 }
@@ -290,6 +289,16 @@ namespace HL7TestClient
                     }
                 }
             };
+        }
+
+        private static string GetOid(string idNumber)
+        {
+            if (idNumber[0] >= '8')
+                return "2.16.578.1.12.4.1.4.3";
+            else if (idNumber[0] >= '4')
+                return "2.16.578.1.12.4.1.4.2";
+            else
+                return "2.16.578.1.12.4.1.4.1";
         }
 
         private static string PersonToString(IIdentifiedPerson identifiedPerson)
