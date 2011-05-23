@@ -19,6 +19,7 @@ namespace HL7TestClient
         private static readonly XmlSerializer FindCandidatesResponseSerializer = new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer GetDemographicsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer GetDemographicsResponseSerializer = new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer AddPersonRequestSerializer = new XmlSerializer(typeof (PRPA_IN101311UV02), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer LinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101901NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer UnlinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101911NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer AcknowledgementSerializer = new XmlSerializer(typeof (MCAI_IN000004NO01), new XmlRootAttribute {Namespace = RootNamespace});
@@ -32,12 +33,14 @@ namespace HL7TestClient
                 {
                     try
                     {
-                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (L)inkPersonRecords, or (E)xit? ");
+                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (L)inkPersonRecords, (U)nlinkPersonRecords, or (E)xit? ");
                         string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
                         else if (action == "G")
                             GetDemographics(client);
+                        else if (action == "A")
+                            AddPerson(client);
                         else if (action == "L")
                             LinkPersonRecords(client);
                         else if (action == "U")
@@ -163,6 +166,28 @@ namespace HL7TestClient
                     Console.WriteLine("Unrecognized query response code: '{0}'", queryResponseCode);
                     break;
             }
+        }
+
+        private static void AddPerson(PersonRegistryClient client)
+        {
+            var request = new PRPA_IN101311UV02 {
+                processingCode = ProcessingCode.Test(),
+                controlActProcess = new PRPA_IN101311UV02MFMI_MT700721UV01ControlActProcess {
+                    subject = new PRPA_IN101311UV02MFMI_MT700721UV01Subject1 {
+                        registrationRequest = new PRPA_IN101311UV02MFMI_MT700721UV01RegistrationRequest {
+                            subject1 = new PRPA_IN101311UV02MFMI_MT700721UV01Subject2 {
+                                identifiedPerson = new PRPA_MT101301UV02IdentifiedPerson {
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            AddPersonRequestSerializer.Serialize(Console.Out, request);
+            Console.WriteLine();
+            string response = client.AddPerson(request);
+            Console.WriteLine("The following FH-number has been reserved: " + response);
         }
 
         private static void LinkPersonRecords(PersonRegistryClient client)

@@ -22,6 +22,7 @@ namespace HL7TestClient.PersonRegistry {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
@@ -35,11 +36,26 @@ namespace HL7TestClient.PersonRegistry {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101305NO01MCCI_MT000100UV01Message))]
         HL7TestClient.PersonRegistry.PRPA_IN101308NO01 GetDemographics(HL7TestClient.PersonRegistry.PRPA_IN101307NO01 query);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonRegistry/AddPerson", ReplyAction="http://tempuri.org/IPersonRegistry/AddPersonResponse")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101911NO01MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCAI_IN000004NO01MCCI_MT000300UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101305NO01MCCI_MT000100UV01Message))]
+        string AddPerson(HL7TestClient.PersonRegistry.PRPA_IN101311UV02 request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPersonRegistry/RecordRevised", ReplyAction="http://tempuri.org/IPersonRegistry/RecordRevisedResponse")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -48,6 +64,7 @@ namespace HL7TestClient.PersonRegistry {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
@@ -61,6 +78,7 @@ namespace HL7TestClient.PersonRegistry {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
@@ -74,6 +92,7 @@ namespace HL7TestClient.PersonRegistry {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101901NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(MCCI_MT000200UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101302UV02MCCI_MT000100UV01Message))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101311UV02MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101308NO01MCCI_MT000300UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101307NO01MCCI_MT000100UV01Message))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(PRPA_IN101306NO01MCCI_MT000300UV01Message))]
@@ -566,6 +585,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SC))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ADXP))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcity))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostBox))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpbuildingNumberSuffix))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryModeIdentifier))]
@@ -573,25 +593,24 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationQualifier))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationArea))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcensusTract))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcareOf))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitID))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetName))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostalCode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstate))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcountry))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdelimiter))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpprecinct))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(thumbnail))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
@@ -814,11 +833,11 @@ namespace HL7TestClient.PersonRegistry {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UVP_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXPR_TS))]
@@ -850,38 +869,38 @@ namespace HL7TestClient.PersonRegistry {
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_MO_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MO))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_MO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_QTY_QTY))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_INT))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_REAL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_PQ_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_QTY_QTY))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HXIT_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BXIT_IVL_PQ))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UVP_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXPR_TS))]
@@ -897,55 +916,55 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EN))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PN))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TN))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ON))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AD))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(II))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SLIST_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ANYNonNull))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BN))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GLIST_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(GLIST_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SLIST_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SLIST_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(EN))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TN))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PN))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(ON))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(AD))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CR))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(QTY))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_MO_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(MO))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_MO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_QTY_QTY))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_INT))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_INT))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_REAL))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_REAL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_PQ_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO_QTY_QTY))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(HXIT_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BXIT_IVL_PQ))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(UVP_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXPR_TS))]
@@ -966,6 +985,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SC))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ADXP))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcity))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostBox))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpbuildingNumberSuffix))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryModeIdentifier))]
@@ -973,25 +993,24 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationQualifier))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationArea))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcensusTract))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcareOf))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitID))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetName))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostalCode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstate))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcountry))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdelimiter))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpprecinct))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(thumbnail))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(CD))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BXIT_CD))]
@@ -1399,10 +1418,10 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_PQ))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BXIT_IVL_PQ))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PQ))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1711,34 +1730,6 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class IVXB_PQ : PQ {
-        
-        private bool inclusiveField;
-        
-        public IVXB_PQ() {
-            this.inclusiveField = true;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(true)]
-        public bool inclusive {
-            get {
-                return this.inclusiveField;
-            }
-            set {
-                this.inclusiveField = value;
-                this.RaisePropertyChanged("inclusive");
-            }
-        }
-    }
-    
-    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PQ))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BXIT_IVL_PQ))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
@@ -1807,6 +1798,34 @@ namespace HL7TestClient.PersonRegistry {
             set {
                 this.itemsElementNameField = value;
                 this.RaisePropertyChanged("ItemsElementName");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class IVXB_PQ : PQ {
+        
+        private bool inclusiveField;
+        
+        public IVXB_PQ() {
+            this.inclusiveField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool inclusive {
+            get {
+                return this.inclusiveField;
+            }
+            set {
+                this.inclusiveField = value;
+                this.RaisePropertyChanged("inclusive");
             }
         }
     }
@@ -2325,8 +2344,8 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TN))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PN))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(TN))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ON))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
@@ -2536,6 +2555,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SC))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ADXP))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcity))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostBox))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpbuildingNumberSuffix))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryModeIdentifier))]
@@ -2543,25 +2563,24 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationQualifier))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationArea))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcensusTract))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcareOf))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitID))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetName))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostalCode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstate))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcountry))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdelimiter))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpprecinct))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2651,6 +2670,7 @@ namespace HL7TestClient.PersonRegistry {
     
     /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcity))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostBox))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpbuildingNumberSuffix))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryModeIdentifier))]
@@ -2658,25 +2678,24 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationQualifier))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationArea))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcensusTract))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcareOf))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitID))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetName))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostalCode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstate))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcountry))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdelimiter))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpprecinct))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -2818,6 +2837,15 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.deliveryAddressLine", Namespace="urn:hl7-org:v3")]
+    public partial class adxpdeliveryAddressLine : ADXP {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.postBox", Namespace="urn:hl7-org:v3")]
     public partial class adxppostBox : ADXP {
     }
@@ -2881,8 +2909,8 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.deliveryAddressLine", Namespace="urn:hl7-org:v3")]
-    public partial class adxpdeliveryAddressLine : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.direction", Namespace="urn:hl7-org:v3")]
+    public partial class adxpdirection : ADXP {
     }
     
     /// <remarks/>
@@ -2908,8 +2936,8 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.unitType", Namespace="urn:hl7-org:v3")]
-    public partial class adxpunitType : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.unitID", Namespace="urn:hl7-org:v3")]
+    public partial class adxpunitID : ADXP {
     }
     
     /// <remarks/>
@@ -2917,8 +2945,17 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.unitID", Namespace="urn:hl7-org:v3")]
-    public partial class adxpunitID : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.additionalLocator", Namespace="urn:hl7-org:v3")]
+    public partial class adxpadditionalLocator : ADXP {
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.streetNameType", Namespace="urn:hl7-org:v3")]
+    public partial class adxpstreetNameType : ADXP {
     }
     
     /// <remarks/>
@@ -2944,17 +2981,8 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.direction", Namespace="urn:hl7-org:v3")]
-    public partial class adxpdirection : ADXP {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.houseNumberNumeric", Namespace="urn:hl7-org:v3")]
-    public partial class adxphouseNumberNumeric : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.county", Namespace="urn:hl7-org:v3")]
+    public partial class adxpcounty : ADXP {
     }
     
     /// <remarks/>
@@ -2989,17 +3017,8 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.streetNameType", Namespace="urn:hl7-org:v3")]
-    public partial class adxpstreetNameType : ADXP {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.county", Namespace="urn:hl7-org:v3")]
-    public partial class adxpcounty : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.houseNumberNumeric", Namespace="urn:hl7-org:v3")]
+    public partial class adxphouseNumberNumeric : ADXP {
     }
     
     /// <remarks/>
@@ -3043,8 +3062,8 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.additionalLocator", Namespace="urn:hl7-org:v3")]
-    public partial class adxpadditionalLocator : ADXP {
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="adxp.unitType", Namespace="urn:hl7-org:v3")]
+    public partial class adxpunitType : ADXP {
     }
     
     /// <remarks/>
@@ -3117,7 +3136,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class TN : EN {
+    public partial class PN : EN {
     }
     
     /// <remarks/>
@@ -3126,7 +3145,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class PN : EN {
+    public partial class TN : EN {
     }
     
     /// <remarks/>
@@ -11600,7 +11619,7 @@ namespace HL7TestClient.PersonRegistry {
         
         private INT[] itemsField;
         
-        private ItemsChoiceType5[] itemsElementNameField;
+        private ItemsChoiceType4[] itemsElementNameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("center", typeof(INT), Order=0)]
@@ -11621,7 +11640,7 @@ namespace HL7TestClient.PersonRegistry {
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType5[] ItemsElementName {
+        public ItemsChoiceType4[] ItemsElementName {
             get {
                 return this.itemsElementNameField;
             }
@@ -11636,7 +11655,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3", IncludeInSchema=false)]
-    public enum ItemsChoiceType5 {
+    public enum ItemsChoiceType4 {
         
         /// <remarks/>
         center,
@@ -33025,6 +33044,4479 @@ namespace HL7TestClient.PersonRegistry {
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.AdministrativeObservation", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02AdministrativeObservation : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CD codeField;
+        
+        private CS statusCodeField;
+        
+        private SXCM_TS[] effectiveTimeField;
+        
+        private ANY valueField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private ActClassObservation classCodeField;
+        
+        private ActMood moodCodeField;
+        
+        private bool moodCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CD code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("effectiveTime", Order=6)]
+        public SXCM_TS[] effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public ANY value {
+            get {
+                return this.valueField;
+            }
+            set {
+                this.valueField = value;
+                this.RaisePropertyChanged("value");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActClassObservation classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActMood moodCode {
+            get {
+                return this.moodCodeField;
+            }
+            set {
+                this.moodCodeField = value;
+                this.RaisePropertyChanged("moodCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool moodCodeSpecified {
+            get {
+                return this.moodCodeFieldSpecified;
+            }
+            set {
+                this.moodCodeFieldSpecified = value;
+                this.RaisePropertyChanged("moodCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Subject4", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Subject4 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private PRPA_MT101301UV02AdministrativeObservation administrativeObservationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private ParticipationTargetSubject typeCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public PRPA_MT101301UV02AdministrativeObservation administrativeObservation {
+            get {
+                return this.administrativeObservationField;
+            }
+            set {
+                this.administrativeObservationField = value;
+                this.RaisePropertyChanged("administrativeObservation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ParticipationTargetSubject typeCode {
+            get {
+                return this.typeCodeField;
+            }
+            set {
+                this.typeCodeField = value;
+                this.RaisePropertyChanged("typeCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.LanguageCommunication", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02LanguageCommunication : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private CE languageCodeField;
+        
+        private CE modeCodeField;
+        
+        private CE proficiencyLevelCodeField;
+        
+        private BL preferenceIndField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public CE languageCode {
+            get {
+                return this.languageCodeField;
+            }
+            set {
+                this.languageCodeField = value;
+                this.RaisePropertyChanged("languageCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CE modeCode {
+            get {
+                return this.modeCodeField;
+            }
+            set {
+                this.modeCodeField = value;
+                this.RaisePropertyChanged("modeCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public CE proficiencyLevelCode {
+            get {
+                return this.proficiencyLevelCodeField;
+            }
+            set {
+                this.proficiencyLevelCodeField = value;
+                this.RaisePropertyChanged("proficiencyLevelCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public BL preferenceInd {
+            get {
+                return this.preferenceIndField;
+            }
+            set {
+                this.preferenceIndField = value;
+                this.RaisePropertyChanged("preferenceInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Subject2", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Subject2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private COCT_MT960000UV05Position positionField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private ParticipationType typeCodeField;
+        
+        private bool typeCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public COCT_MT960000UV05Position position {
+            get {
+                return this.positionField;
+            }
+            set {
+                this.positionField = value;
+                this.RaisePropertyChanged("position");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ParticipationType typeCode {
+            get {
+                return this.typeCodeField;
+            }
+            set {
+                this.typeCodeField = value;
+                this.RaisePropertyChanged("typeCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool typeCodeSpecified {
+            get {
+                return this.typeCodeFieldSpecified;
+            }
+            set {
+                this.typeCodeFieldSpecified = value;
+                this.RaisePropertyChanged("typeCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.BirthPlace", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02BirthPlace : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private AD addrField;
+        
+        private COCT_MT710007UV07Place birthplaceField;
+        
+        private PRPA_MT101301UV02Subject2 subjectOfField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public AD addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=4)]
+        public COCT_MT710007UV07Place birthplace {
+            get {
+                return this.birthplaceField;
+            }
+            set {
+                this.birthplaceField = value;
+                this.RaisePropertyChanged("birthplace");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=5)]
+        public PRPA_MT101301UV02Subject2 subjectOf {
+            get {
+                return this.subjectOfField;
+            }
+            set {
+                this.subjectOfField = value;
+                this.RaisePropertyChanged("subjectOf");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.PersonalRelationship", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02PersonalRelationship : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CE codeField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private COCT_MT030207UV07Person relationshipHolderField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        private bool negationIndField;
+        
+        private bool negationIndFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CE code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=5)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=6)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public COCT_MT030207UV07Person relationshipHolder {
+            get {
+                return this.relationshipHolderField;
+            }
+            set {
+                this.relationshipHolderField = value;
+                this.RaisePropertyChanged("relationshipHolder");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool negationInd {
+            get {
+                return this.negationIndField;
+            }
+            set {
+                this.negationIndField = value;
+                this.RaisePropertyChanged("negationInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool negationIndSpecified {
+            get {
+                return this.negationIndFieldSpecified;
+            }
+            set {
+                this.negationIndFieldSpecified = value;
+                this.RaisePropertyChanged("negationIndSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Guardian", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Guardian : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private ED certificateTextField;
+        
+        private object itemField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        private bool negationIndField;
+        
+        private bool negationIndFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=4)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=5)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public ED certificateText {
+            get {
+                return this.certificateTextField;
+            }
+            set {
+                this.certificateTextField = value;
+                this.RaisePropertyChanged("certificateText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("guardianOrganization", typeof(COCT_MT150007UVOrganization), IsNullable=true, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute("guardianPerson", typeof(COCT_MT030207UV07Person), IsNullable=true, Order=9)]
+        public object Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+                this.RaisePropertyChanged("Item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool negationInd {
+            get {
+                return this.negationIndField;
+            }
+            set {
+                this.negationIndField = value;
+                this.RaisePropertyChanged("negationInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool negationIndSpecified {
+            get {
+                return this.negationIndFieldSpecified;
+            }
+            set {
+                this.negationIndFieldSpecified = value;
+                this.RaisePropertyChanged("negationIndSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.ContactParty", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02ContactParty : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CE codeField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private object itemField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClassContact classCodeField;
+        
+        private bool negationIndField;
+        
+        private bool negationIndFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CE code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=5)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=6)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("contactOrganization", typeof(COCT_MT150007UVOrganization), IsNullable=true, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute("contactPerson", typeof(COCT_MT030207UV07Person), IsNullable=true, Order=9)]
+        public object Item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+                this.RaisePropertyChanged("Item");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClassContact classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool negationInd {
+            get {
+                return this.negationIndField;
+            }
+            set {
+                this.negationIndField = value;
+                this.RaisePropertyChanged("negationInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool negationIndSpecified {
+            get {
+                return this.negationIndFieldSpecified;
+            }
+            set {
+                this.negationIndFieldSpecified = value;
+                this.RaisePropertyChanged("negationIndSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.OtherIDs", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02OtherIDs : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private COCT_MT150002UV01Organization scopingOrganizationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClassRoot classCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=6)]
+        public COCT_MT150002UV01Organization scopingOrganization {
+            get {
+                return this.scopingOrganizationField;
+            }
+            set {
+                this.scopingOrganizationField = value;
+                this.RaisePropertyChanged("scopingOrganization");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClassRoot classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Group", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Group : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CE codeField;
+        
+        private EN[] nameField;
+        
+        private ED descField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS existenceTimeField;
+        
+        private TEL[] telecomField;
+        
+        private AD addrField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private EntityClassOrganization classCodeField;
+        
+        private EntityDeterminer determinerCodeField;
+        
+        private bool determinerCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CE code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("name", Order=5)]
+        public EN[] name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public ED desc {
+            get {
+                return this.descField;
+            }
+            set {
+                this.descField = value;
+                this.RaisePropertyChanged("desc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public IVL_TS existenceTime {
+            get {
+                return this.existenceTimeField;
+            }
+            set {
+                this.existenceTimeField = value;
+                this.RaisePropertyChanged("existenceTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=9)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public AD addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityClassOrganization classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityDeterminer determinerCode {
+            get {
+                return this.determinerCodeField;
+            }
+            set {
+                this.determinerCodeField = value;
+                this.RaisePropertyChanged("determinerCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool determinerCodeSpecified {
+            get {
+                return this.determinerCodeFieldSpecified;
+            }
+            set {
+                this.determinerCodeFieldSpecified = value;
+                this.RaisePropertyChanged("determinerCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Member", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Member : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CE codeField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private PRPA_MT101301UV02Group groupField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClassMember classCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CE code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public PRPA_MT101301UV02Group group {
+            get {
+                return this.groupField;
+            }
+            set {
+                this.groupField = value;
+                this.RaisePropertyChanged("group");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClassMember classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Student", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Student : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private COCT_MT150007UVOrganization schoolOrganizationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=4)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=5)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=8)]
+        public COCT_MT150007UVOrganization schoolOrganization {
+            get {
+                return this.schoolOrganizationField;
+            }
+            set {
+                this.schoolOrganizationField = value;
+                this.RaisePropertyChanged("schoolOrganization");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Nation", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Nation : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private CE codeField;
+        
+        private ON nameField;
+        
+        private EntityClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        private EntityDeterminer determinerCodeField;
+        
+        private bool determinerCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public CE code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public ON name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityDeterminer determinerCode {
+            get {
+                return this.determinerCodeField;
+            }
+            set {
+                this.determinerCodeField = value;
+                this.RaisePropertyChanged("determinerCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool determinerCodeSpecified {
+            get {
+                return this.determinerCodeFieldSpecified;
+            }
+            set {
+                this.determinerCodeFieldSpecified = value;
+                this.RaisePropertyChanged("determinerCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Citizen", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Citizen : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private PRPA_MT101301UV02Nation politicalNationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public PRPA_MT101301UV02Nation politicalNation {
+            get {
+                return this.politicalNationField;
+            }
+            set {
+                this.politicalNationField = value;
+                this.RaisePropertyChanged("politicalNation");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Employee", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Employee : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private SC jobTitleNameField;
+        
+        private CE jobClassCodeField;
+        
+        private CE occupationCodeField;
+        
+        private COCT_MT150007UVOrganization employerOrganizationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private RoleClassEmployee classCodeField;
+        
+        private bool negationIndField;
+        
+        private bool negationIndFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=4)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=5)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public SC jobTitleName {
+            get {
+                return this.jobTitleNameField;
+            }
+            set {
+                this.jobTitleNameField = value;
+                this.RaisePropertyChanged("jobTitleName");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public CE jobClassCode {
+            get {
+                return this.jobClassCodeField;
+            }
+            set {
+                this.jobClassCodeField = value;
+                this.RaisePropertyChanged("jobClassCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public CE occupationCode {
+            get {
+                return this.occupationCodeField;
+            }
+            set {
+                this.occupationCodeField = value;
+                this.RaisePropertyChanged("occupationCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=11)]
+        public COCT_MT150007UVOrganization employerOrganization {
+            get {
+                return this.employerOrganizationField;
+            }
+            set {
+                this.employerOrganizationField = value;
+                this.RaisePropertyChanged("employerOrganization");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClassEmployee classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public bool negationInd {
+            get {
+                return this.negationIndField;
+            }
+            set {
+                this.negationIndField = value;
+                this.RaisePropertyChanged("negationInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool negationIndSpecified {
+            get {
+                return this.negationIndFieldSpecified;
+            }
+            set {
+                this.negationIndFieldSpecified = value;
+                this.RaisePropertyChanged("negationIndSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.Person", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02Person : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private PN[] nameField;
+        
+        private ED descField;
+        
+        private TEL[] telecomField;
+        
+        private CE administrativeGenderCodeField;
+        
+        private TS birthTimeField;
+        
+        private BL deceasedIndField;
+        
+        private TS deceasedTimeField;
+        
+        private BL multipleBirthIndField;
+        
+        private INT multipleBirthOrderNumberField;
+        
+        private BL organDonorIndField;
+        
+        private AD[] addrField;
+        
+        private CE maritalStatusCodeField;
+        
+        private PRPA_MT101301UV02Employee[] asEmployeeField;
+        
+        private PRPA_MT101301UV02Citizen[] asCitizenField;
+        
+        private PRPA_MT101301UV02Student[] asStudentField;
+        
+        private PRPA_MT101301UV02Member[] asMemberField;
+        
+        private PRPA_MT101301UV02OtherIDs[] asOtherIDsField;
+        
+        private PRPA_MT101301UV02ContactParty[] contactPartyField;
+        
+        private PRPA_MT101301UV02Guardian[] guardianField;
+        
+        private PRPA_MT101301UV02PersonalRelationship[] personalRelationshipField;
+        
+        private PRPA_MT101301UV02BirthPlace birthPlaceField;
+        
+        private PRPA_MT101301UV02LanguageCommunication[] languageCommunicationField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private EntityClass classCodeField;
+        
+        private bool classCodeFieldSpecified;
+        
+        private EntityDeterminer determinerCodeField;
+        
+        private bool determinerCodeFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("name", Order=4)]
+        public PN[] name {
+            get {
+                return this.nameField;
+            }
+            set {
+                this.nameField = value;
+                this.RaisePropertyChanged("name");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ED desc {
+            get {
+                return this.descField;
+            }
+            set {
+                this.descField = value;
+                this.RaisePropertyChanged("desc");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=6)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public CE administrativeGenderCode {
+            get {
+                return this.administrativeGenderCodeField;
+            }
+            set {
+                this.administrativeGenderCodeField = value;
+                this.RaisePropertyChanged("administrativeGenderCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public TS birthTime {
+            get {
+                return this.birthTimeField;
+            }
+            set {
+                this.birthTimeField = value;
+                this.RaisePropertyChanged("birthTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public BL deceasedInd {
+            get {
+                return this.deceasedIndField;
+            }
+            set {
+                this.deceasedIndField = value;
+                this.RaisePropertyChanged("deceasedInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public TS deceasedTime {
+            get {
+                return this.deceasedTimeField;
+            }
+            set {
+                this.deceasedTimeField = value;
+                this.RaisePropertyChanged("deceasedTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public BL multipleBirthInd {
+            get {
+                return this.multipleBirthIndField;
+            }
+            set {
+                this.multipleBirthIndField = value;
+                this.RaisePropertyChanged("multipleBirthInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public INT multipleBirthOrderNumber {
+            get {
+                return this.multipleBirthOrderNumberField;
+            }
+            set {
+                this.multipleBirthOrderNumberField = value;
+                this.RaisePropertyChanged("multipleBirthOrderNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public BL organDonorInd {
+            get {
+                return this.organDonorIndField;
+            }
+            set {
+                this.organDonorIndField = value;
+                this.RaisePropertyChanged("organDonorInd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=14)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=15)]
+        public CE maritalStatusCode {
+            get {
+                return this.maritalStatusCodeField;
+            }
+            set {
+                this.maritalStatusCodeField = value;
+                this.RaisePropertyChanged("maritalStatusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("asEmployee", IsNullable=true, Order=16)]
+        public PRPA_MT101301UV02Employee[] asEmployee {
+            get {
+                return this.asEmployeeField;
+            }
+            set {
+                this.asEmployeeField = value;
+                this.RaisePropertyChanged("asEmployee");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("asCitizen", IsNullable=true, Order=17)]
+        public PRPA_MT101301UV02Citizen[] asCitizen {
+            get {
+                return this.asCitizenField;
+            }
+            set {
+                this.asCitizenField = value;
+                this.RaisePropertyChanged("asCitizen");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("asStudent", IsNullable=true, Order=18)]
+        public PRPA_MT101301UV02Student[] asStudent {
+            get {
+                return this.asStudentField;
+            }
+            set {
+                this.asStudentField = value;
+                this.RaisePropertyChanged("asStudent");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("asMember", IsNullable=true, Order=19)]
+        public PRPA_MT101301UV02Member[] asMember {
+            get {
+                return this.asMemberField;
+            }
+            set {
+                this.asMemberField = value;
+                this.RaisePropertyChanged("asMember");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("asOtherIDs", IsNullable=true, Order=20)]
+        public PRPA_MT101301UV02OtherIDs[] asOtherIDs {
+            get {
+                return this.asOtherIDsField;
+            }
+            set {
+                this.asOtherIDsField = value;
+                this.RaisePropertyChanged("asOtherIDs");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("contactParty", IsNullable=true, Order=21)]
+        public PRPA_MT101301UV02ContactParty[] contactParty {
+            get {
+                return this.contactPartyField;
+            }
+            set {
+                this.contactPartyField = value;
+                this.RaisePropertyChanged("contactParty");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("guardian", IsNullable=true, Order=22)]
+        public PRPA_MT101301UV02Guardian[] guardian {
+            get {
+                return this.guardianField;
+            }
+            set {
+                this.guardianField = value;
+                this.RaisePropertyChanged("guardian");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("personalRelationship", IsNullable=true, Order=23)]
+        public PRPA_MT101301UV02PersonalRelationship[] personalRelationship {
+            get {
+                return this.personalRelationshipField;
+            }
+            set {
+                this.personalRelationshipField = value;
+                this.RaisePropertyChanged("personalRelationship");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=24)]
+        public PRPA_MT101301UV02BirthPlace birthPlace {
+            get {
+                return this.birthPlaceField;
+            }
+            set {
+                this.birthPlaceField = value;
+                this.RaisePropertyChanged("birthPlace");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("languageCommunication", IsNullable=true, Order=25)]
+        public PRPA_MT101301UV02LanguageCommunication[] languageCommunication {
+            get {
+                return this.languageCommunicationField;
+            }
+            set {
+                this.languageCommunicationField = value;
+                this.RaisePropertyChanged("languageCommunication");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityClass classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool classCodeSpecified {
+            get {
+                return this.classCodeFieldSpecified;
+            }
+            set {
+                this.classCodeFieldSpecified = value;
+                this.RaisePropertyChanged("classCodeSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public EntityDeterminer determinerCode {
+            get {
+                return this.determinerCodeField;
+            }
+            set {
+                this.determinerCodeField = value;
+                this.RaisePropertyChanged("determinerCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool determinerCodeSpecified {
+            get {
+                return this.determinerCodeFieldSpecified;
+            }
+            set {
+                this.determinerCodeFieldSpecified = value;
+                this.RaisePropertyChanged("determinerCodeSpecified");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101301UV02.IdentifiedPerson", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_MT101301UV02IdentifiedPerson : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private AD[] addrField;
+        
+        private TEL[] telecomField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private CE[] confidentialityCodeField;
+        
+        private PRPA_MT101301UV02Person identifiedPersonField;
+        
+        private COCT_MT150003UV03Organization assigningOrganizationField;
+        
+        private PRPA_MT101301UV02Subject4[] subjectOfField;
+        
+        private RoleClassIdentifiedEntity classCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("addr", Order=4)]
+        public AD[] addr {
+            get {
+                return this.addrField;
+            }
+            set {
+                this.addrField = value;
+                this.RaisePropertyChanged("addr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("telecom", Order=5)]
+        public TEL[] telecom {
+            get {
+                return this.telecomField;
+            }
+            set {
+                this.telecomField = value;
+                this.RaisePropertyChanged("telecom");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("confidentialityCode", Order=8)]
+        public CE[] confidentialityCode {
+            get {
+                return this.confidentialityCodeField;
+            }
+            set {
+                this.confidentialityCodeField = value;
+                this.RaisePropertyChanged("confidentialityCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=9)]
+        public PRPA_MT101301UV02Person identifiedPerson {
+            get {
+                return this.identifiedPersonField;
+            }
+            set {
+                this.identifiedPersonField = value;
+                this.RaisePropertyChanged("identifiedPerson");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=10)]
+        public COCT_MT150003UV03Organization assigningOrganization {
+            get {
+                return this.assigningOrganizationField;
+            }
+            set {
+                this.assigningOrganizationField = value;
+                this.RaisePropertyChanged("assigningOrganization");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("subjectOf", IsNullable=true, Order=11)]
+        public PRPA_MT101301UV02Subject4[] subjectOf {
+            get {
+                return this.subjectOfField;
+            }
+            set {
+                this.subjectOfField = value;
+                this.RaisePropertyChanged("subjectOf");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public RoleClassIdentifiedEntity classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_IN101311UV02.MFMI_MT700721UV01.Subject2", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02MFMI_MT700721UV01Subject2 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private PRPA_MT101301UV02IdentifiedPerson identifiedPersonField;
+        
+        private ParticipationTargetSubject typeCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public PRPA_MT101301UV02IdentifiedPerson identifiedPerson {
+            get {
+                return this.identifiedPersonField;
+            }
+            set {
+                this.identifiedPersonField = value;
+                this.RaisePropertyChanged("identifiedPerson");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ParticipationTargetSubject typeCode {
+            get {
+                return this.typeCodeField;
+            }
+            set {
+                this.typeCodeField = value;
+                this.RaisePropertyChanged("typeCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_IN101311UV02.MFMI_MT700721UV01.RegistrationRequest", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02MFMI_MT700721UV01RegistrationRequest : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CS statusCodeField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private PRPA_IN101311UV02MFMI_MT700721UV01Subject2 subject1Field;
+        
+        private MFMI_MT700721UV01Author2 authorField;
+        
+        private MFMI_MT700721UV01Definition[] definitionField;
+        
+        private MFMI_MT700721UV01ReplacementOf[] replacementOfField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private ActClassRegistration classCodeField;
+        
+        private ActMoodRequest moodCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CS statusCode {
+            get {
+                return this.statusCodeField;
+            }
+            set {
+                this.statusCodeField = value;
+                this.RaisePropertyChanged("statusCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public PRPA_IN101311UV02MFMI_MT700721UV01Subject2 subject1 {
+            get {
+                return this.subject1Field;
+            }
+            set {
+                this.subject1Field = value;
+                this.RaisePropertyChanged("subject1");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=7)]
+        public MFMI_MT700721UV01Author2 author {
+            get {
+                return this.authorField;
+            }
+            set {
+                this.authorField = value;
+                this.RaisePropertyChanged("author");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("definition", IsNullable=true, Order=8)]
+        public MFMI_MT700721UV01Definition[] definition {
+            get {
+                return this.definitionField;
+            }
+            set {
+                this.definitionField = value;
+                this.RaisePropertyChanged("definition");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("replacementOf", IsNullable=true, Order=9)]
+        public MFMI_MT700721UV01ReplacementOf[] replacementOf {
+            get {
+                return this.replacementOfField;
+            }
+            set {
+                this.replacementOfField = value;
+                this.RaisePropertyChanged("replacementOf");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActClassRegistration classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActMoodRequest moodCode {
+            get {
+                return this.moodCodeField;
+            }
+            set {
+                this.moodCodeField = value;
+                this.RaisePropertyChanged("moodCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_IN101311UV02.MFMI_MT700721UV01.Subject1", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02MFMI_MT700721UV01Subject1 : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private PRPA_IN101311UV02MFMI_MT700721UV01RegistrationRequest registrationRequestField;
+        
+        private NullFlavor nullFlavorField;
+        
+        private bool nullFlavorFieldSpecified;
+        
+        private ActRelationshipHasSubject typeCodeField;
+        
+        private bool contextConductionIndField;
+        
+        public PRPA_IN101311UV02MFMI_MT700721UV01Subject1() {
+            this.contextConductionIndField = false;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=3)]
+        public PRPA_IN101311UV02MFMI_MT700721UV01RegistrationRequest registrationRequest {
+            get {
+                return this.registrationRequestField;
+            }
+            set {
+                this.registrationRequestField = value;
+                this.RaisePropertyChanged("registrationRequest");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public NullFlavor nullFlavor {
+            get {
+                return this.nullFlavorField;
+            }
+            set {
+                this.nullFlavorField = value;
+                this.RaisePropertyChanged("nullFlavor");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool nullFlavorSpecified {
+            get {
+                return this.nullFlavorFieldSpecified;
+            }
+            set {
+                this.nullFlavorFieldSpecified = value;
+                this.RaisePropertyChanged("nullFlavorSpecified");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActRelationshipHasSubject typeCode {
+            get {
+                return this.typeCodeField;
+            }
+            set {
+                this.typeCodeField = value;
+                this.RaisePropertyChanged("typeCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(false)]
+        public bool contextConductionInd {
+            get {
+                return this.contextConductionIndField;
+            }
+            set {
+                this.contextConductionIndField = value;
+                this.RaisePropertyChanged("contextConductionInd");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_IN101311UV02.MFMI_MT700721UV01.ControlActProcess", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02MFMI_MT700721UV01ControlActProcess : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II[] idField;
+        
+        private CD codeField;
+        
+        private ED textField;
+        
+        private IVL_TS effectiveTimeField;
+        
+        private CD[] priorityCodeField;
+        
+        private CD[] reasonCodeField;
+        
+        private CD languageCodeField;
+        
+        private MFMI_MT700721UV01Overseer[] overseerField;
+        
+        private MFMI_MT700721UV01AuthorOrPerformer[] authorOrPerformerField;
+        
+        private MFMI_MT700721UV01DataEnterer[] dataEntererField;
+        
+        private MFMI_MT700721UV01InformationRecipient[] informationRecipientField;
+        
+        private PRPA_IN101311UV02MFMI_MT700721UV01Subject1 subjectField;
+        
+        private MFMI_MT700721UV01Reason[] reasonOfField;
+        
+        private ActClassControlAct classCodeField;
+        
+        private x_ActMoodIntentEvent moodCodeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("id", Order=3)]
+        public II[] id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public CD code {
+            get {
+                return this.codeField;
+            }
+            set {
+                this.codeField = value;
+                this.RaisePropertyChanged("code");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ED text {
+            get {
+                return this.textField;
+            }
+            set {
+                this.textField = value;
+                this.RaisePropertyChanged("text");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public IVL_TS effectiveTime {
+            get {
+                return this.effectiveTimeField;
+            }
+            set {
+                this.effectiveTimeField = value;
+                this.RaisePropertyChanged("effectiveTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("priorityCode", Order=7)]
+        public CD[] priorityCode {
+            get {
+                return this.priorityCodeField;
+            }
+            set {
+                this.priorityCodeField = value;
+                this.RaisePropertyChanged("priorityCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("reasonCode", Order=8)]
+        public CD[] reasonCode {
+            get {
+                return this.reasonCodeField;
+            }
+            set {
+                this.reasonCodeField = value;
+                this.RaisePropertyChanged("reasonCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public CD languageCode {
+            get {
+                return this.languageCodeField;
+            }
+            set {
+                this.languageCodeField = value;
+                this.RaisePropertyChanged("languageCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("overseer", IsNullable=true, Order=10)]
+        public MFMI_MT700721UV01Overseer[] overseer {
+            get {
+                return this.overseerField;
+            }
+            set {
+                this.overseerField = value;
+                this.RaisePropertyChanged("overseer");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("authorOrPerformer", IsNullable=true, Order=11)]
+        public MFMI_MT700721UV01AuthorOrPerformer[] authorOrPerformer {
+            get {
+                return this.authorOrPerformerField;
+            }
+            set {
+                this.authorOrPerformerField = value;
+                this.RaisePropertyChanged("authorOrPerformer");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("dataEnterer", IsNullable=true, Order=12)]
+        public MFMI_MT700721UV01DataEnterer[] dataEnterer {
+            get {
+                return this.dataEntererField;
+            }
+            set {
+                this.dataEntererField = value;
+                this.RaisePropertyChanged("dataEnterer");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("informationRecipient", IsNullable=true, Order=13)]
+        public MFMI_MT700721UV01InformationRecipient[] informationRecipient {
+            get {
+                return this.informationRecipientField;
+            }
+            set {
+                this.informationRecipientField = value;
+                this.RaisePropertyChanged("informationRecipient");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true, Order=14)]
+        public PRPA_IN101311UV02MFMI_MT700721UV01Subject1 subject {
+            get {
+                return this.subjectField;
+            }
+            set {
+                this.subjectField = value;
+                this.RaisePropertyChanged("subject");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("reasonOf", IsNullable=true, Order=15)]
+        public MFMI_MT700721UV01Reason[] reasonOf {
+            get {
+                return this.reasonOfField;
+            }
+            set {
+                this.reasonOfField = value;
+                this.RaisePropertyChanged("reasonOf");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public ActClassControlAct classCode {
+            get {
+                return this.classCodeField;
+            }
+            set {
+                this.classCodeField = value;
+                this.RaisePropertyChanged("classCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public x_ActMoodIntentEvent moodCode {
+            get {
+                return this.moodCodeField;
+            }
+            set {
+                this.moodCodeField = value;
+                this.RaisePropertyChanged("moodCode");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(PRPA_IN101311UV02))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_IN101311UV02.MCCI_MT000100UV01.Message", Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02MCCI_MT000100UV01Message : object, System.ComponentModel.INotifyPropertyChanged {
+        
+        private CS[] realmCodeField;
+        
+        private II typeIdField;
+        
+        private II[] templateIdField;
+        
+        private II idField;
+        
+        private TS creationTimeField;
+        
+        private ST securityTextField;
+        
+        private CS versionCodeField;
+        
+        private II interactionIdField;
+        
+        private II[] profileIdField;
+        
+        private CS processingCodeField;
+        
+        private CS processingModeCodeField;
+        
+        private CS acceptAckCodeField;
+        
+        private INT sequenceNumberField;
+        
+        private ED[] attachmentTextField;
+        
+        private MCCI_MT000100UV01Receiver[] receiverField;
+        
+        private MCCI_MT000100UV01RespondTo[] respondToField;
+        
+        private MCCI_MT000100UV01Sender senderField;
+        
+        private MCCI_MT000100UV01AttentionLine[] attentionLineField;
+        
+        private PRPA_IN101311UV02MFMI_MT700721UV01ControlActProcess controlActProcessField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order=0)]
+        public CS[] realmCode {
+            get {
+                return this.realmCodeField;
+            }
+            set {
+                this.realmCodeField = value;
+                this.RaisePropertyChanged("realmCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public II typeId {
+            get {
+                return this.typeIdField;
+            }
+            set {
+                this.typeIdField = value;
+                this.RaisePropertyChanged("typeId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order=2)]
+        public II[] templateId {
+            get {
+                return this.templateIdField;
+            }
+            set {
+                this.templateIdField = value;
+                this.RaisePropertyChanged("templateId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public II id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+                this.RaisePropertyChanged("id");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public TS creationTime {
+            get {
+                return this.creationTimeField;
+            }
+            set {
+                this.creationTimeField = value;
+                this.RaisePropertyChanged("creationTime");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ST securityText {
+            get {
+                return this.securityTextField;
+            }
+            set {
+                this.securityTextField = value;
+                this.RaisePropertyChanged("securityText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public CS versionCode {
+            get {
+                return this.versionCodeField;
+            }
+            set {
+                this.versionCodeField = value;
+                this.RaisePropertyChanged("versionCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public II interactionId {
+            get {
+                return this.interactionIdField;
+            }
+            set {
+                this.interactionIdField = value;
+                this.RaisePropertyChanged("interactionId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("profileId", Order=8)]
+        public II[] profileId {
+            get {
+                return this.profileIdField;
+            }
+            set {
+                this.profileIdField = value;
+                this.RaisePropertyChanged("profileId");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public CS processingCode {
+            get {
+                return this.processingCodeField;
+            }
+            set {
+                this.processingCodeField = value;
+                this.RaisePropertyChanged("processingCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public CS processingModeCode {
+            get {
+                return this.processingModeCodeField;
+            }
+            set {
+                this.processingModeCodeField = value;
+                this.RaisePropertyChanged("processingModeCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
+        public CS acceptAckCode {
+            get {
+                return this.acceptAckCodeField;
+            }
+            set {
+                this.acceptAckCodeField = value;
+                this.RaisePropertyChanged("acceptAckCode");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public INT sequenceNumber {
+            get {
+                return this.sequenceNumberField;
+            }
+            set {
+                this.sequenceNumberField = value;
+                this.RaisePropertyChanged("sequenceNumber");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("attachmentText", Order=13)]
+        public ED[] attachmentText {
+            get {
+                return this.attachmentTextField;
+            }
+            set {
+                this.attachmentTextField = value;
+                this.RaisePropertyChanged("attachmentText");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("receiver", Order=14)]
+        public MCCI_MT000100UV01Receiver[] receiver {
+            get {
+                return this.receiverField;
+            }
+            set {
+                this.receiverField = value;
+                this.RaisePropertyChanged("receiver");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("respondTo", IsNullable=true, Order=15)]
+        public MCCI_MT000100UV01RespondTo[] respondTo {
+            get {
+                return this.respondToField;
+            }
+            set {
+                this.respondToField = value;
+                this.RaisePropertyChanged("respondTo");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=16)]
+        public MCCI_MT000100UV01Sender sender {
+            get {
+                return this.senderField;
+            }
+            set {
+                this.senderField = value;
+                this.RaisePropertyChanged("sender");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("attentionLine", IsNullable=true, Order=17)]
+        public MCCI_MT000100UV01AttentionLine[] attentionLine {
+            get {
+                return this.attentionLineField;
+            }
+            set {
+                this.attentionLineField = value;
+                this.RaisePropertyChanged("attentionLine");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=18)]
+        public PRPA_IN101311UV02MFMI_MT700721UV01ControlActProcess controlActProcess {
+            get {
+                return this.controlActProcessField;
+            }
+            set {
+                this.controlActProcessField = value;
+                this.RaisePropertyChanged("controlActProcess");
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class PRPA_IN101311UV02 : PRPA_IN101311UV02MCCI_MT000100UV01Message {
+        
+        private string iTSVersionField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        public string ITSVersion {
+            get {
+                return this.iTSVersionField;
+            }
+            set {
+                this.iTSVersionField = value;
+                this.RaisePropertyChanged("ITSVersion");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="PRPA_MT101303NO01.OtherIdentifiedPerson", Namespace="urn:hl7-org:v3")]
     public partial class PRPA_MT101303NO01OtherIdentifiedPerson : object, System.ComponentModel.INotifyPropertyChanged {
         
@@ -50494,6 +54986,57 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class SLIST_PQ : ANY {
+        
+        private PQ originField;
+        
+        private PQ scaleField;
+        
+        private string digitsField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public PQ origin {
+            get {
+                return this.originField;
+            }
+            set {
+                this.originField = value;
+                this.RaisePropertyChanged("origin");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public PQ scale {
+            get {
+                return this.scaleField;
+            }
+            set {
+                this.scaleField = value;
+                this.RaisePropertyChanged("scale");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string digits {
+            get {
+                return this.digitsField;
+            }
+            set {
+                this.digitsField = value;
+                this.RaisePropertyChanged("digits");
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(BN))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
@@ -50727,57 +55270,6 @@ namespace HL7TestClient.PersonRegistry {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class SLIST_PQ : ANY {
-        
-        private PQ originField;
-        
-        private PQ scaleField;
-        
-        private string digitsField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public PQ origin {
-            get {
-                return this.originField;
-            }
-            set {
-                this.originField = value;
-                this.RaisePropertyChanged("origin");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public PQ scale {
-            get {
-                return this.scaleField;
-            }
-            set {
-                this.scaleField = value;
-                this.RaisePropertyChanged("scale");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string digits {
-            get {
-                return this.digitsField;
-            }
-            set {
-                this.digitsField = value;
-                this.RaisePropertyChanged("digits");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
     public partial class CR : ANY {
         
         private CV nameField;
@@ -50864,6 +55356,7 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SC))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(ADXP))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcity))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostBox))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpbuildingNumberSuffix))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryModeIdentifier))]
@@ -50871,25 +55364,24 @@ namespace HL7TestClient.PersonRegistry {
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationQualifier))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationArea))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryInstallationType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdeliveryAddressLine))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcensusTract))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcareOf))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitID))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameBase))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetName))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdirection))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumber))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetAddressLine))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxppostalCode))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstreetNameType))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcounty))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxphouseNumberNumeric))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpstate))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpcountry))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpdelimiter))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpprecinct))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpadditionalLocator))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(adxpunitType))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(thumbnail))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
@@ -50983,9 +55475,9 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_MO))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_MO))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_MO))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -51018,34 +55510,6 @@ namespace HL7TestClient.PersonRegistry {
             set {
                 this.currencyField = value;
                 this.RaisePropertyChanged("currency");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class IVXB_MO : MO {
-        
-        private bool inclusiveField;
-        
-        public IVXB_MO() {
-            this.inclusiveField = true;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(true)]
-        public bool inclusive {
-            get {
-                return this.inclusiveField;
-            }
-            set {
-                this.inclusiveField = value;
-                this.RaisePropertyChanged("inclusive");
             }
         }
     }
@@ -51124,6 +55588,34 @@ namespace HL7TestClient.PersonRegistry {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class IVXB_MO : MO {
+        
+        private bool inclusiveField;
+        
+        public IVXB_MO() {
+            this.inclusiveField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool inclusive {
+            get {
+                return this.inclusiveField;
+            }
+            set {
+                this.inclusiveField = value;
+                this.RaisePropertyChanged("inclusive");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3", IncludeInSchema=false)]
     public enum ItemsChoiceType6 {
         
@@ -51141,9 +55633,56 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class RTO_QTY_QTY : QTY {
+        
+        private QTY numeratorField;
+        
+        private QTY denominatorField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public QTY numerator {
+            get {
+                return this.numeratorField;
+            }
+            set {
+                this.numeratorField = value;
+                this.RaisePropertyChanged("numerator");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public QTY denominator {
+            get {
+                return this.denominatorField;
+            }
+            set {
+                this.denominatorField = value;
+                this.RaisePropertyChanged("denominator");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class RTO : RTO_QTY_QTY {
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_REAL))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_REAL))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_REAL))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -51162,34 +55701,6 @@ namespace HL7TestClient.PersonRegistry {
             set {
                 this.valueField = value;
                 this.RaisePropertyChanged("value");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class IVXB_REAL : REAL {
-        
-        private bool inclusiveField;
-        
-        public IVXB_REAL() {
-            this.inclusiveField = true;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(true)]
-        public bool inclusive {
-            get {
-                return this.inclusiveField;
-            }
-            set {
-                this.inclusiveField = value;
-                this.RaisePropertyChanged("inclusive");
             }
         }
     }
@@ -51233,7 +55744,7 @@ namespace HL7TestClient.PersonRegistry {
         
         private REAL[] itemsField;
         
-        private ItemsChoiceType4[] itemsElementNameField;
+        private ItemsChoiceType5[] itemsElementNameField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("center", typeof(REAL), Order=0)]
@@ -51254,7 +55765,7 @@ namespace HL7TestClient.PersonRegistry {
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
         [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType4[] ItemsElementName {
+        public ItemsChoiceType5[] ItemsElementName {
             get {
                 return this.itemsElementNameField;
             }
@@ -51268,8 +55779,36 @@ namespace HL7TestClient.PersonRegistry {
     /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class IVXB_REAL : REAL {
+        
+        private bool inclusiveField;
+        
+        public IVXB_REAL() {
+            this.inclusiveField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool inclusive {
+            get {
+                return this.inclusiveField;
+            }
+            set {
+                this.inclusiveField = value;
+                this.RaisePropertyChanged("inclusive");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3", IncludeInSchema=false)]
-    public enum ItemsChoiceType4 {
+    public enum ItemsChoiceType5 {
         
         /// <remarks/>
         center,
@@ -51322,53 +55861,6 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(RTO))]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class RTO_QTY_QTY : QTY {
-        
-        private QTY numeratorField;
-        
-        private QTY denominatorField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public QTY numerator {
-            get {
-                return this.numeratorField;
-            }
-            set {
-                this.numeratorField = value;
-                this.RaisePropertyChanged("numerator");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public QTY denominator {
-            get {
-                return this.denominatorField;
-            }
-            set {
-                this.denominatorField = value;
-                this.RaisePropertyChanged("denominator");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class RTO : RTO_QTY_QTY {
-    }
-    
-    /// <remarks/>
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -51406,11 +55898,11 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(SXCM_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVXB_PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -51462,9 +55954,37 @@ namespace HL7TestClient.PersonRegistry {
     }
     
     /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class IVXB_PPD_TS : PPD_TS {
+        
+        private bool inclusiveField;
+        
+        public IVXB_PPD_TS() {
+            this.inclusiveField = true;
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlAttributeAttribute()]
+        [System.ComponentModel.DefaultValueAttribute(true)]
+        public bool inclusive {
+            get {
+                return this.inclusiveField;
+            }
+            set {
+                this.inclusiveField = value;
+                this.RaisePropertyChanged("inclusive");
+            }
+        }
+    }
+    
+    /// <remarks/>
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(EIVL_PPD_TS))]
-    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.Xml.Serialization.XmlIncludeAttribute(typeof(PIVL_PPD_TS))]
+    [System.Xml.Serialization.XmlIncludeAttribute(typeof(IVL_PPD_TS))]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -51536,95 +56056,6 @@ namespace HL7TestClient.PersonRegistry {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="EIVL.event", Namespace="urn:hl7-org:v3")]
     public partial class EIVLevent : CE {
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class IVL_PPD_TS : SXCM_PPD_TS {
-        
-        private QTY[] itemsField;
-        
-        private ItemsChoiceType3[] itemsElementNameField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("center", typeof(PPD_TS), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("high", typeof(IVXB_PPD_TS), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("low", typeof(IVXB_PPD_TS), Order=0)]
-        [System.Xml.Serialization.XmlElementAttribute("width", typeof(PPD_PQ), Order=0)]
-        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
-        public QTY[] Items {
-            get {
-                return this.itemsField;
-            }
-            set {
-                this.itemsField = value;
-                this.RaisePropertyChanged("Items");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public ItemsChoiceType3[] ItemsElementName {
-            get {
-                return this.itemsElementNameField;
-            }
-            set {
-                this.itemsElementNameField = value;
-                this.RaisePropertyChanged("ItemsElementName");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
-    public partial class IVXB_PPD_TS : PPD_TS {
-        
-        private bool inclusiveField;
-        
-        public IVXB_PPD_TS() {
-            this.inclusiveField = true;
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlAttributeAttribute()]
-        [System.ComponentModel.DefaultValueAttribute(true)]
-        public bool inclusive {
-            get {
-                return this.inclusiveField;
-            }
-            set {
-                this.inclusiveField = value;
-                this.RaisePropertyChanged("inclusive");
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
-    [System.SerializableAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3", IncludeInSchema=false)]
-    public enum ItemsChoiceType3 {
-        
-        /// <remarks/>
-        center,
-        
-        /// <remarks/>
-        high,
-        
-        /// <remarks/>
-        low,
-        
-        /// <remarks/>
-        width,
     }
     
     /// <remarks/>
@@ -51709,6 +56140,67 @@ namespace HL7TestClient.PersonRegistry {
                 this.RaisePropertyChanged("institutionSpecified1");
             }
         }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3")]
+    public partial class IVL_PPD_TS : SXCM_PPD_TS {
+        
+        private QTY[] itemsField;
+        
+        private ItemsChoiceType3[] itemsElementNameField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("center", typeof(PPD_TS), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("high", typeof(IVXB_PPD_TS), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("low", typeof(IVXB_PPD_TS), Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute("width", typeof(PPD_PQ), Order=0)]
+        [System.Xml.Serialization.XmlChoiceIdentifierAttribute("ItemsElementName")]
+        public QTY[] Items {
+            get {
+                return this.itemsField;
+            }
+            set {
+                this.itemsField = value;
+                this.RaisePropertyChanged("Items");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ItemsElementName", Order=1)]
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public ItemsChoiceType3[] ItemsElementName {
+            get {
+                return this.itemsElementNameField;
+            }
+            set {
+                this.itemsElementNameField = value;
+                this.RaisePropertyChanged("ItemsElementName");
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.225")]
+    [System.SerializableAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:hl7-org:v3", IncludeInSchema=false)]
+    public enum ItemsChoiceType3 {
+        
+        /// <remarks/>
+        center,
+        
+        /// <remarks/>
+        high,
+        
+        /// <remarks/>
+        low,
+        
+        /// <remarks/>
+        width,
     }
     
     /// <remarks/>
@@ -52141,6 +56633,10 @@ namespace HL7TestClient.PersonRegistry {
         
         public HL7TestClient.PersonRegistry.PRPA_IN101308NO01 GetDemographics(HL7TestClient.PersonRegistry.PRPA_IN101307NO01 query) {
             return base.Channel.GetDemographics(query);
+        }
+        
+        public string AddPerson(HL7TestClient.PersonRegistry.PRPA_IN101311UV02 request) {
+            return base.Channel.AddPerson(request);
         }
         
         public HL7TestClient.PersonRegistry.MCCI_IN000002UV01 RecordRevised(HL7TestClient.PersonRegistry.PRPA_IN101302UV02 request) {
