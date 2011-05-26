@@ -20,6 +20,7 @@ namespace HL7TestClient
         private static readonly XmlSerializer GetDemographicsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101307NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer GetDemographicsResponseSerializer = new XmlSerializer(typeof (PRPA_IN101308NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer AddPersonRequestSerializer = new XmlSerializer(typeof (PRPA_IN101311UV02), new XmlRootAttribute {Namespace = RootNamespace});
+        private static readonly XmlSerializer RecordRevisedRequestSerializer = new XmlSerializer(typeof (PRPA_IN101302UV02), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer LinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101901NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer UnlinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101911NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer AcknowledgementSerializer = new XmlSerializer(typeof (MCAI_IN000004NO01), new XmlRootAttribute {Namespace = RootNamespace});
@@ -33,7 +34,7 @@ namespace HL7TestClient
                 {
                     try
                     {
-                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (L)inkPersonRecords, (U)nlinkPersonRecords, or (E)xit? ");
+                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)ecordRevised, (L)inkPersonRecords, (U)nlinkPersonRecords, or (E)xit? ");
                         string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
@@ -41,6 +42,8 @@ namespace HL7TestClient
                             GetDemographics(client);
                         else if (action == "A")
                             AddPerson(client);
+                        else if (action == "R")
+                            RecordRevised(client);
                         else if (action == "L")
                             LinkPersonRecords(client);
                         else if (action == "U")
@@ -177,6 +180,9 @@ namespace HL7TestClient
                         registrationRequest = new PRPA_IN101311UV02MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101311UV02MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101301UV02IdentifiedPerson {
+                                    identifiedPerson = new PRPA_MT101301UV02Person {
+                                        birthTime = new TS {value = "19850924"}
+                                    }
                                 }
                             }
                         }
@@ -188,6 +194,35 @@ namespace HL7TestClient
             Console.WriteLine();
             string response = client.AddPerson(request);
             Console.WriteLine("The following FH-number has been reserved: " + response);
+        }
+
+        private static void RecordRevised(PersonRegistryClient client)
+        {
+            const string id = "80000010999";
+            var request = new PRPA_IN101302UV02 {
+                processingCode = ProcessingCode.Test(),
+                controlActProcess = new PRPA_IN101302UV02MFMI_MT700701UV01ControlActProcess {
+                    subject = new[] {
+                        new PRPA_IN101302UV02MFMI_MT700701UV01Subject1 {
+                            registrationEvent = new PRPA_IN101302UV02MFMI_MT700701UV01RegistrationEvent {
+                                subject1 = new PRPA_IN101302UV02MFMI_MT700701UV01Subject2 {
+                                    identifiedPerson = new PRPA_MT101302UV02IdentifiedPerson {
+                                        id = new[] {new II {root = GetOid(id), extension = id}},
+                                        identifiedPerson = new PRPA_MT101302UV02Person {
+                                            birthTime = new TS {value = "19480526"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            RecordRevisedRequestSerializer.Serialize(Console.Out, request);
+            Console.WriteLine();
+            MCCI_IN000002UV01 response = client.RecordRevised(request);
+            Console.WriteLine("Success");
         }
 
         private static void LinkPersonRecords(PersonRegistryClient client)
@@ -231,7 +266,6 @@ namespace HL7TestClient
 
         private static void UnlinkPersonRecords(PersonRegistryClient client)
         {
-            const string fhNumberOid = "2.16.578.1.12.4.1.4.3";
             Console.Write("Enter child FH-number: ");
             string obsoleteFhNumber = Console.ReadLine();
             Console.Write("Enter parent ID-number or FH-number: ");
