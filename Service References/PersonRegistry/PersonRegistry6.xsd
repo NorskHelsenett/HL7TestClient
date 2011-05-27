@@ -32,56 +32,56 @@
   <xs:element name="AddPerson">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q5:PRPA_IN101311UV02" />
+        <xs:element xmlns:q5="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q5:PRPA_IN101311NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddPersonResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" maxOccurs="1" name="AddPersonResult" type="xs:string" />
+        <xs:element xmlns:q6="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="AddPersonResult" type="q6:PRPA_IN101319NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RecordRevised">
+  <xs:element name="RevisePersonRecord">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q6:PRPA_IN101302UV02" />
+        <xs:element xmlns:q7="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q7:PRPA_IN101314NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="RecordRevisedResponse">
+  <xs:element name="RevisePersonRecordResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="RecordRevisedResult" type="q7:MCCI_IN000002UV01" />
+        <xs:element xmlns:q8="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="RevisePersonRecordResult" type="q8:PRPA_IN101319NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LinkPersonRecords">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q8:PRPA_IN101901NO01" />
+        <xs:element xmlns:q9="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q9:PRPA_IN101901NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="LinkPersonRecordsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="LinkPersonRecordsResult" type="q9:MCAI_IN000004NO01" />
+        <xs:element xmlns:q10="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="LinkPersonRecordsResult" type="q10:MCAI_IN000004NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UnlinkPersonRecords">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q10:PRPA_IN101911NO01" />
+        <xs:element xmlns:q11="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="request" type="q11:PRPA_IN101911NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="UnlinkPersonRecordsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="UnlinkPersonRecordsResult" type="q11:MCAI_IN000004NO01" />
+        <xs:element xmlns:q12="urn:hl7-org:v3" minOccurs="0" maxOccurs="1" name="UnlinkPersonRecordsResult" type="q12:MCAI_IN000004NO01" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -125,11 +125,11 @@
   <wsdl:message name="IPersonRegistry_AddPerson_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddPersonResponse" />
   </wsdl:message>
-  <wsdl:message name="IPersonRegistry_RecordRevised_InputMessage">
-    <wsdl:part name="parameters" element="tns:RecordRevised" />
+  <wsdl:message name="IPersonRegistry_RevisePersonRecord_InputMessage">
+    <wsdl:part name="parameters" element="tns:RevisePersonRecord" />
   </wsdl:message>
-  <wsdl:message name="IPersonRegistry_RecordRevised_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RecordRevisedResponse" />
+  <wsdl:message name="IPersonRegistry_RevisePersonRecord_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RevisePersonRecordResponse" />
   </wsdl:message>
   <wsdl:message name="IPersonRegistry_LinkPersonRecords_InputMessage">
     <wsdl:part name="parameters" element="tns:LinkPersonRecords" />
@@ -156,9 +156,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/AddPerson" message="tns:IPersonRegistry_AddPerson_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/AddPersonResponse" message="tns:IPersonRegistry_AddPerson_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="RecordRevised">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/RecordRevised" message="tns:IPersonRegistry_RecordRevised_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/RecordRevisedResponse" message="tns:IPersonRegistry_RecordRevised_OutputMessage" />
+    <wsdl:operation name="RevisePersonRecord">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/RevisePersonRecord" message="tns:IPersonRegistry_RevisePersonRecord_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPersonRegistry/RevisePersonRecordResponse" message="tns:IPersonRegistry_RevisePersonRecord_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="LinkPersonRecords">
       <wsdl:input wsaw:Action="http://tempuri.org/IPersonRegistry/LinkPersonRecords" message="tns:IPersonRegistry_LinkPersonRecords_InputMessage" />
@@ -199,8 +199,8 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="RecordRevised">
-      <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/RecordRevised" style="document" />
+    <wsdl:operation name="RevisePersonRecord">
+      <soap12:operation soapAction="http://tempuri.org/IPersonRegistry/RevisePersonRecord" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

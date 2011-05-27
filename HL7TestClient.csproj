@@ -77,13 +77,13 @@
     <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.MCAI_IN000004NO01.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.MCCI_IN000002UV01.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101306NO01.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101308NO01.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\PersonRegistry\HL7TestClient.PersonRegistry.PRPA_IN101319NO01.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\PersonRegistry\PersonRegistry.wsdl" />
