@@ -26,6 +26,8 @@ namespace HL7TestClient
         private static readonly XmlSerializer UnlinkPersonRecordsRequestSerializer = new XmlSerializer(typeof (PRPA_IN101911NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer AcknowledgementSerializer = new XmlSerializer(typeof (MCAI_IN000004NO01), new XmlRootAttribute {Namespace = RootNamespace});
 
+        private static CS _processingCode = ProcessingCode.Test();
+
         static void Main()
         {
             var client = CreateClient();
@@ -35,7 +37,7 @@ namespace HL7TestClient
                 {
                     try
                     {
-                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, or (E)xit? ");
+                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, change (P)rocessing code, or (E)xit? ");
                         string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
@@ -49,6 +51,8 @@ namespace HL7TestClient
                             LinkPersonRecords(client);
                         else if (action == "U")
                             UnlinkPersonRecords(client);
+                        else if (action == "P")
+                            ChangeProcessingCode();
                         else if (action == "E")
                             break;
                     }
@@ -107,7 +111,8 @@ namespace HL7TestClient
             };
 
             var message = new PRPA_IN101305NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101305NO01QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101306NO01QueryByParameter {
                         parameterList = paramList
@@ -136,7 +141,8 @@ namespace HL7TestClient
 
             var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
             var getDemMessage = new PRPA_IN101307NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101307NO01QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101307UV02QueryByParameter {
                         parameterList = new PRPA_MT101307UV02ParameterList {
@@ -175,7 +181,8 @@ namespace HL7TestClient
         private static void AddPerson(PersonRegistryClient client)
         {
             var request = new PRPA_IN101311NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101311NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101311NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101311NO01MFMI_MT700721UV01RegistrationRequest {
@@ -202,7 +209,8 @@ namespace HL7TestClient
         {
             const string id = "80000010999";
             var request = new PRPA_IN101314NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101314NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101314NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101314NO01MFMI_MT700721UV01RegistrationRequest {
@@ -236,7 +244,8 @@ namespace HL7TestClient
                 return;
 
             var request = new PRPA_IN101901NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101901NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101901NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101901NO01MFMI_MT700721UV01RegistrationRequest {
@@ -275,7 +284,8 @@ namespace HL7TestClient
                 return;
 
             var request = new PRPA_IN101911NO01 {
-                processingCode = ProcessingCode.Test(),
+                id = CreateMessageId(),
+                processingCode = _processingCode,
                 controlActProcess = new PRPA_IN101911NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101911NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101911NO01MFMI_MT700721UV01RegistrationRequest {
@@ -300,6 +310,30 @@ namespace HL7TestClient
             MCAI_IN000004NO01 response = client.UnlinkPersonRecords(request);
             AcknowledgementSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
+        }
+
+        private static void ChangeProcessingCode()
+        {
+            Console.Write("Please choose (P)roduction, (T)est, or (D)ebugging: ");
+            while (true)
+            {
+                string code = (Console.ReadLine() ?? "").ToUpper();
+                if (code == "P")
+                {
+                    _processingCode = ProcessingCode.Production();
+                    return;
+                }
+                if (code == "T")
+                {
+                    _processingCode = ProcessingCode.Test();
+                    break;
+                }
+                if (code == "D")
+                {
+                    _processingCode = ProcessingCode.Debugging();
+                    break;
+                }
+            }
         }
 
         private static PRPA_MT101306NO01PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
@@ -334,6 +368,11 @@ namespace HL7TestClient
                 return "2.16.578.1.12.4.1.4.2";
             else
                 return "2.16.578.1.12.4.1.4.1";
+        }
+
+        private static II CreateMessageId()
+        {
+            return new II("1.2.3.4", Guid.NewGuid().ToString());
         }
 
         private static string PersonToString(IIdentifiedPerson identifiedPerson)
