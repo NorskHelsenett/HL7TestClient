@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
@@ -110,15 +111,13 @@ namespace HL7TestClient
                 new PRPA_MT101306NO01PersonAdministrativeGender {value = new[] {new CE(), new CE()}},
             };
 
-            var message = new PRPA_IN101305NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            var message = SetTopLevelFields(new PRPA_IN101305NO01 {
                 controlActProcess = new PRPA_IN101305NO01QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101306NO01QueryByParameter {
                         parameterList = paramList
                     }
                 }
-            };
+            });
 
             FindCandidatesRequestSerializer.Serialize(Console.Out, message);
             Console.WriteLine();
@@ -140,9 +139,7 @@ namespace HL7TestClient
                 return;
 
             var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
-            var getDemMessage = new PRPA_IN101307NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            var getDemMessage = SetTopLevelFields(new PRPA_IN101307NO01 {
                 controlActProcess = new PRPA_IN101307NO01QUQI_MT021001UV01ControlActProcess {
                     queryByParameter = new PRPA_MT101307UV02QueryByParameter {
                         parameterList = new PRPA_MT101307UV02ParameterList {
@@ -152,7 +149,7 @@ namespace HL7TestClient
                         }
                     }
                 }
-            };
+            });
 
             GetDemographicsRequestSerializer.Serialize(Console.Out, getDemMessage);
             Console.WriteLine();
@@ -180,9 +177,7 @@ namespace HL7TestClient
 
         private static void AddPerson(PersonRegistryClient client)
         {
-            var request = new PRPA_IN101311NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            var request = SetTopLevelFields(new PRPA_IN101311NO01 {
                 controlActProcess = new PRPA_IN101311NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101311NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101311NO01MFMI_MT700721UV01RegistrationRequest {
@@ -196,7 +191,7 @@ namespace HL7TestClient
                         }
                     }
                 }
-            };
+            });
             
             AddPersonRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
@@ -207,26 +202,42 @@ namespace HL7TestClient
 
         private static void RecordRevised(PersonRegistryClient client)
         {
-            const string id = "80000010999";
-            var request = new PRPA_IN101314NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            Console.Write("Enter id number: ");
+            string idNumber = Console.ReadLine();
+            if (string.IsNullOrWhiteSpace(idNumber))
+                return;
+
+            var request = SetTopLevelFields(new PRPA_IN101314NO01 {
                 controlActProcess = new PRPA_IN101314NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101314NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101314NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101314NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101302NO01IdentifiedPerson {
-                                    id = new[] {new II {root = GetOid(id), extension = id}},
+                                    id = new[] {new II {root = GetOid(idNumber), extension = idNumber}},
                                     identifiedPerson = new PRPA_MT101302NO01Person {
-                                        birthTime = new TS {value = "19480526"}
+                                        administrativeGenderCode = new CE {codeSystem = "2.16.840.1.113883.5.1", code = "M"},
+                                        birthTime = new TS {value = "19480526"},
+                                        name = new[] {
+                                            new PN {
+                                                use = new[] {EntityNameUse.OR},
+                                                Items = new ENXP[] {
+                                                    new engiven {Text = new[] {"Ole"}},
+                                                    new engiven {Text = new[] {"Petter"}},
+                                                    new enfamily {qualifier = new[] {EntityNamePartQualifier.MID}, Text = new[] {"Fjell"}},
+                                                    new enfamily {qualifier = new[] {EntityNamePartQualifier.MID}, Text = new[] {"Berg"}},
+                                                    new enfamily {Text = new[] {"Bang"}},
+                                                    new enfamily {Text = new[] {"Hansen"}}
+                                                }
+                                            }
+                                        },
                                     }
                                 }
                             }
                         }
                     }
                 }
-            };
-            
+            });
+
             RevisePersonRecordRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
             PRPA_IN101319NO01 response = client.RevisePersonRecord(request);
@@ -243,15 +254,13 @@ namespace HL7TestClient
             if (string.IsNullOrWhiteSpace(obsoleteFhNumber) || string.IsNullOrWhiteSpace(survivingIdNumberOrFhNumber))
                 return;
 
-            var request = new PRPA_IN101901NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            var request = SetTopLevelFields(new PRPA_IN101901NO01 {
                 controlActProcess = new PRPA_IN101901NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101901NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101901NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101901NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101901NO01IdentifiedPerson {
-                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)}, 
+                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)},
                                     identifiedBy = new[] {
                                         new PRPA_MT101901NO01SourceOf2 {
                                             //TODO: Is the value of statusCode important?
@@ -265,7 +274,7 @@ namespace HL7TestClient
                         }
                     }
                 }
-            };
+            });
             
             LinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
@@ -283,15 +292,13 @@ namespace HL7TestClient
             if (string.IsNullOrWhiteSpace(obsoleteFhNumber) || string.IsNullOrWhiteSpace(survivingIdNumberOrFhNumber))
                 return;
 
-            var request = new PRPA_IN101911NO01 {
-                id = CreateMessageId(),
-                processingCode = _processingCode,
+            var request = SetTopLevelFields(new PRPA_IN101911NO01 {
                 controlActProcess = new PRPA_IN101911NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101911NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101911NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101911NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101911NO01IdentifiedPerson {
-                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)}, 
+                                    id = new[] {new II(GetOid(survivingIdNumberOrFhNumber), survivingIdNumberOrFhNumber)},
                                     identifiedBy = new PRPA_MT101911NO01SourceOf2 {
                                         //TODO: Is the value of statusCode important?
                                         otherIdentifiedPerson = new PRPA_MT101911NO01OtherIdentifiedPerson {
@@ -303,7 +310,7 @@ namespace HL7TestClient
                         }
                     }
                 }
-            };
+            });
             
             UnlinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
@@ -407,6 +414,29 @@ namespace HL7TestClient
             }
 
             return sb.ToString();
+        }
+
+        private static TMessage SetTopLevelFields<TMessage>(TMessage message)
+            where TMessage : IRequestMessage
+        {
+            message.id = CreateMessageId();
+            message.interactionId = new II("2.16.840.1.113883.1.6", typeof (TMessage).Name);
+            message.processingCode = _processingCode;
+            message.processingModeCode = new CS("T");
+            message.versionCode = new CS("NE2010NO");
+            message.receiver = new[] {
+                new MCCI_MT000100UV01Receiver {
+                    typeCode = CommunicationFunctionType.RCV,
+                    device = new MCCI_MT000100UV01Device {
+                        classCode = EntityClassDevice.DEV,
+                        determinerCode = EntityDeterminerSpecific.INSTANCE,
+                        id = new[] {
+                            new II("2.16.578.1.12.4.5.1.1", null),
+                        }
+                    }
+                }
+            };
+            return message;
         }
     }
 }
