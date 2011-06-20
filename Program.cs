@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace HL7TestClient
 {
     class Program
     {
+        private const string FhNumberOid = "2.16.578.1.12.4.1.4.3";
+
         private const string RootNamespace = "urn:hl7-org:v3";
         private static readonly XmlSerializer FindCandidatesRequestSerializer = new XmlSerializer(typeof (PRPA_IN101305NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer FindCandidatesResponseSerializer = new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = RootNamespace});
@@ -28,7 +31,9 @@ namespace HL7TestClient
         private static readonly XmlSerializer AcknowledgementSerializer = new XmlSerializer(typeof (MCAI_IN000004NO01), new XmlRootAttribute {Namespace = RootNamespace});
 
         private static CS _processingCode = ProcessingCode.Test();
-
+        
+        private static readonly Random Random = new Random();
+            
         static void Main()
         {
             var client = CreateClient();
@@ -38,7 +43,7 @@ namespace HL7TestClient
                 {
                     try
                     {
-                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, change (P)rocessing code, or (E)xit? ");
+                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, change (P)rocessing code, run performance (T)est, or (E)xit? ");
                         string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
                         if (action == "F")
                             FindCandidates(client);
@@ -54,6 +59,8 @@ namespace HL7TestClient
                             UnlinkPersonRecords(client);
                         else if (action == "P")
                             ChangeProcessingCode();
+                        else if (action == "T")
+                            RunPerformanceTest(client);
                         else if (action == "E")
                             break;
                     }
@@ -138,30 +145,20 @@ namespace HL7TestClient
             if (string.IsNullOrWhiteSpace(idNumber))
                 return;
 
-            var id = new II {root = IdNumberOid.FNumber, extension = idNumber.Trim()};
-            var getDemMessage = SetTopLevelFields(new PRPA_IN101307NO01 {
-                controlActProcess = new PRPA_IN101307NO01QUQI_MT021001UV01ControlActProcess {
-                    queryByParameter = new PRPA_MT101307UV02QueryByParameter {
-                        parameterList = new PRPA_MT101307UV02ParameterList {
-                            identifiedPersonIdentifier = new[] {
-                                new PRPA_MT101307UV02IdentifiedPersonIdentifier {value = new[] {id}}
-                            }
-                        }
-                    }
-                }
-            });
+            var id = new II {root = GetOid(idNumber.Trim()), extension = idNumber.Trim()};
+            PRPA_IN101307NO01 request = CreateGetDemographicsRequest(id);
 
-            GetDemographicsRequestSerializer.Serialize(Console.Out, getDemMessage);
+            GetDemographicsRequestSerializer.Serialize(Console.Out, request);
             Console.WriteLine();
-            PRPA_IN101308NO01 getDemographicsResult = client.GetDemographics(getDemMessage);
-            GetDemographicsResponseSerializer.Serialize(Console.Out, getDemographicsResult);
+            PRPA_IN101308NO01 response = client.GetDemographics(request);
+            GetDemographicsResponseSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
 
-            string queryResponseCode = getDemographicsResult.controlActProcess.queryAck.queryResponseCode.code;
+            string queryResponseCode = response.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
             {
                 case QueryResponseCode.Ok:
-                    Console.WriteLine(PersonToString(getDemographicsResult.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson));
+                    Console.WriteLine(PersonToString(response.controlActProcess.subject[0].registrationEvent.subject1.identifiedPerson));
                     break;
                 case QueryResponseCode.NoResultsFound:
                     Console.WriteLine("No results found");
@@ -173,6 +170,21 @@ namespace HL7TestClient
                     Console.WriteLine("Unrecognized query response code: '{0}'", queryResponseCode);
                     break;
             }
+        }
+
+        private static PRPA_IN101307NO01 CreateGetDemographicsRequest(II id)
+        {
+            return SetTopLevelFields(new PRPA_IN101307NO01 {
+                controlActProcess = new PRPA_IN101307NO01QUQI_MT021001UV01ControlActProcess {
+                    queryByParameter = new PRPA_MT101307UV02QueryByParameter {
+                        parameterList = new PRPA_MT101307UV02ParameterList {
+                            identifiedPersonIdentifier = new[] {
+                                new PRPA_MT101307UV02IdentifiedPersonIdentifier {value = new[] {id}}
+                            }
+                        }
+                    }
+                }
+            });
         }
 
         private static void AddPerson(PersonRegistryClient client)
@@ -343,6 +355,35 @@ namespace HL7TestClient
             }
         }
 
+        private static void RunPerformanceTest(PersonRegistryClient client)
+        {
+            var sw = new Stopwatch();
+
+            sw.Start();
+            client.GetDemographics(CreateGetDemographicsRequest(new II(FhNumberOid, CreateRandomFhNumber())));
+            sw.Stop();
+            Console.WriteLine("Initial request: " + sw.Elapsed);
+
+            sw.Restart();
+            const int numRequests = 1000;
+            for (int i = 0; i < numRequests; ++i)
+            {
+                client.GetDemographics(CreateGetDemographicsRequest(new II(FhNumberOid, CreateRandomFhNumber())));
+            }
+            sw.Stop();
+            Console.WriteLine("{0} subsequent requests: {1} ({2} ms per request)", numRequests, sw.Elapsed, sw.ElapsedMilliseconds / numRequests);
+        }
+
+        private static string CreateRandomFhNumber()
+        {
+            while (true)
+            {
+                string fhNumber = Random.Next(800000000, 800009999).ToString();
+                if (ChecksumGenerator.AppendChecksum(ref fhNumber))
+                    return fhNumber;
+            }
+        }
+
         private static PRPA_MT101306NO01PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
         {
             return new[] {
@@ -370,7 +411,7 @@ namespace HL7TestClient
         private static string GetOid(string idNumber)
         {
             if (idNumber[0] >= '8')
-                return "2.16.578.1.12.4.1.4.3";
+                return FhNumberOid;
             else if (idNumber[0] >= '4')
                 return "2.16.578.1.12.4.1.4.2";
             else
