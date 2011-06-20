@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChecksumGenerator.cs" />
     <Compile Include="Constants\IdNumberOid.cs" />
     <Compile Include="Constants\ProcessingCode.cs" />
     <Compile Include="Constants\QueryResponseCode.cs" />
