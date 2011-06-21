@@ -372,6 +372,18 @@ namespace HL7TestClient
             }
             sw.Stop();
             Console.WriteLine("{0} subsequent requests: {1} ({2} ms per request)", numRequests, sw.Elapsed, sw.ElapsedMilliseconds / numRequests);
+
+            sw.Restart();
+            const int numIndividualRequests = 100;
+            for (int i = 0; i < numIndividualRequests; ++i)
+            {
+                using (var c = CreateClient())
+                {
+                    c.GetDemographics(CreateGetDemographicsRequest(new II(FhNumberOid, CreateRandomFhNumber())));
+                }
+            }
+            sw.Stop();
+            Console.WriteLine("{0} individual requests: {1} ({2} ms per request)", numIndividualRequests, sw.Elapsed, sw.ElapsedMilliseconds / numIndividualRequests);
         }
 
         private static string CreateRandomFhNumber()
