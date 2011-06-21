@@ -6,6 +6,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Xml.Serialization;
 using HL7TestClient.Constants;
 using HL7TestClient.Interfaces;
@@ -384,6 +385,32 @@ namespace HL7TestClient
             }
             sw.Stop();
             Console.WriteLine("{0} individual requests: {1} ({2} ms per request)", numIndividualRequests, sw.Elapsed, sw.ElapsedMilliseconds / numIndividualRequests);
+
+            const int numThreads = 10;
+            var threads = new Thread[numThreads];
+            for (int i = 0; i < numThreads; ++i)
+            {
+                threads[i] = new Thread(ThreadTester);
+                threads[i].Start(i);
+            }
+            foreach (var thread in threads)
+                thread.Join();
+        }
+
+        private static void ThreadTester(object threadId)
+        {
+            var sw = new Stopwatch();
+            sw.Start();
+            const int numIndividualRequests = 50;
+            for (int i = 0; i < numIndividualRequests; ++i)
+            {
+                using (var c = CreateClient())
+                {
+                    c.GetDemographics(CreateGetDemographicsRequest(new II(FhNumberOid, CreateRandomFhNumber())));
+                }
+            }
+            sw.Stop();
+            Console.WriteLine("{0} individual requests from thread #{1}: {2} ({3} ms per request)", numIndividualRequests, (int)threadId, sw.Elapsed, sw.ElapsedMilliseconds / numIndividualRequests);
         }
 
         private static string CreateRandomFhNumber()
