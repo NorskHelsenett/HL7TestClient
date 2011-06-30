@@ -381,7 +381,7 @@ namespace HL7TestClient
             sw.Stop();
             Console.WriteLine("{0} individual requests: {1} ({2} ms per request)", numIndividualRequests, sw.Elapsed, sw.ElapsedMilliseconds / numIndividualRequests);
 
-            const int numThreads = 10;
+            const int numThreads = 20;
             var threads = new Thread[numThreads];
             for (int i = 0; i < numThreads; ++i)
             {
@@ -397,9 +397,9 @@ namespace HL7TestClient
             var sw = new Stopwatch();
             sw.Start();
             const int numIndividualRequests = 50;
-            for (int i = 0; i < numIndividualRequests; ++i)
+            using (var c = CreateClient())
             {
-                using (var c = CreateClient())
+                for (int i = 0; i < numIndividualRequests; ++i)
                 {
                     c.GetDemographics(CreateGetDemographicsRequest(new II(FhNumberOid, CreateRandomFhNumber())));
                 }
