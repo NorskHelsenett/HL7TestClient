@@ -100,8 +100,8 @@ namespace HL7TestClient
             if (lastName != "" || firstName != "")
             {
                 var nameItems = new List<ENXP>();
-                nameItems.AddRange(firstName.Split().Select(fn => new engiven(fn)));
-                nameItems.AddRange(lastName.Split().Select(ln => new enfamily(ln)));
+                nameItems.AddRange(firstName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(fn => new engiven(fn)));
+                nameItems.AddRange(lastName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(ln => new enfamily(ln)));
                 paramList.personName = CreatePersonNameParameter(nameItems);
             }
 
@@ -113,11 +113,6 @@ namespace HL7TestClient
                 else
                     Console.WriteLine("Warning: Date of birth is illegal; skipping");
             }
-
-            paramList.personAdministrativeGender = new[] {
-                new PRPA_MT101306NO01PersonAdministrativeGender {value = new[] {new CE(), new CE()}},
-                new PRPA_MT101306NO01PersonAdministrativeGender {value = new[] {new CE(), new CE()}},
-            };
 
             var message = SetTopLevelFields(new PRPA_IN101305NO01 {
                 controlActProcess = new PRPA_IN101305NO01QUQI_MT021001UV01ControlActProcess {
