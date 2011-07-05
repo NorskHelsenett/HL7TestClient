@@ -219,7 +219,7 @@ namespace HL7TestClient
             var info = ReadPersonalInformation(true, true);
             
             var outerPerson = new PRPA_MT101302NO01IdentifiedPerson {
-                id = new[] {new II {root = GetOid(info.IdNumber), extension = info.IdNumber}},
+                id = new[] {new II {root = GetOid(info.FhNumber), extension = info.FhNumber}},
                 identifiedPerson = new PRPA_MT101302NO01Person()
             };
 
@@ -544,7 +544,7 @@ namespace HL7TestClient
         {
             var info = new PersonalInformation();
             if (askForIdNumber)
-                info.IdNumber = ReadLineAndTrim("F-number / D-number / FH-number: ");
+                info.FhNumber = ReadLineAndTrim("FH-number: ");
             info.FirstName = ReadLineAndTrim("First name(s): ");
             info.MiddleName = ReadLineAndTrim("Middle name(s): ");
             info.LastName = ReadLineAndTrim("Last name(s): ");
