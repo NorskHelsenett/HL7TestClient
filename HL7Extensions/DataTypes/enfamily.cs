@@ -14,5 +14,12 @@
         {
             this.Text = new[] {text};
         }
+
+        public enfamily(string text, bool isMiddleName)
+            : this(text)
+        {
+            if (isMiddleName)
+                this.qualifier = new[] {EntityNamePartQualifier.MID};
+        }
     }
 }

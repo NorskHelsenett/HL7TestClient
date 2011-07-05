@@ -18,7 +18,8 @@ namespace HL7TestClient
     class Program
     {
         private const string FhNumberOid = "2.16.578.1.12.4.1.4.3";
-
+        private const string DateFormat = "yyyyMMdd";
+        
         private const string RootNamespace = "urn:hl7-org:v3";
         private static readonly XmlSerializer FindCandidatesRequestSerializer = new XmlSerializer(typeof (PRPA_IN101305NO01), new XmlRootAttribute {Namespace = RootNamespace});
         private static readonly XmlSerializer FindCandidatesResponseSerializer = new XmlSerializer(typeof (PRPA_IN101306NO01), new XmlRootAttribute {Namespace = RootNamespace});
@@ -86,33 +87,32 @@ namespace HL7TestClient
 
         private static void FindCandidates(PersonRegistryClient client)
         {
-            const string dateFormat = "yyyyMMdd";
-
-            Console.Write("First name(s), or blank to skip: ");
-            string firstName = (Console.ReadLine() ?? "").Trim();
-            Console.Write("Last name(s), or blank to skip: ");
-            string lastName = (Console.ReadLine() ?? "").Trim();
-            Console.Write("Date of birth ({0}), or blank to skip: ", dateFormat);
-            string dateOfBirth = (Console.ReadLine() ?? "").Trim();
-
+            var info = ReadPersonalInformation(false, false);
             var paramList = new PRPA_MT101306NO01ParameterList();
 
-            if (lastName != "" || firstName != "")
-            {
-                var nameItems = new List<ENXP>();
-                nameItems.AddRange(firstName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(fn => new engiven(fn)));
-                nameItems.AddRange(lastName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(ln => new enfamily(ln)));
+            var nameItems = new List<ENXP>();
+            nameItems.AddRange(info.FirstName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(fn => new engiven(fn)));
+            nameItems.AddRange(info.MiddleName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(mn => new enfamily(mn, true)));
+            nameItems.AddRange(info.LastName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(ln => new enfamily(ln)));
+            if (nameItems.Count > 0)
                 paramList.personName = CreatePersonNameParameter(nameItems);
-            }
 
-            if (dateOfBirth != "")
+            if (info.DateOfBirth != "")
             {
                 DateTime dummy;
-                if (DateTime.TryParseExact(dateOfBirth, dateFormat, null, DateTimeStyles.None, out dummy))
-                    paramList.personBirthTime = CreatePersonBirthTimeParameter(dateOfBirth);
+                if (DateTime.TryParseExact(info.DateOfBirth, DateFormat, null, DateTimeStyles.None, out dummy))
+                    paramList.personBirthTime = CreatePersonBirthTimeParameter(info.DateOfBirth);
                 else
                     Console.WriteLine("Warning: Date of birth is illegal; skipping");
             }
+
+            var addressItems = new List<ADXP>();
+            if (info.StreetAddressLine != "")
+                addressItems.Add(new adxpstreetAddressLine {Text = new[] {info.StreetAddressLine}});
+            if (info.ZipCode != "")
+                addressItems.Add(new adxppostalCode {Text = new[] {info.ZipCode}});
+            if (addressItems.Count > 0)
+                paramList.identifiedPersonAddress = CreateIdentifiedPersonAddressParameter(addressItems);
 
             var message = SetTopLevelFields(new PRPA_IN101305NO01 {
                 controlActProcess = new PRPA_IN101305NO01QUQI_MT021001UV01ControlActProcess {
@@ -136,8 +136,7 @@ namespace HL7TestClient
 
         private static void GetDemographics(PersonRegistryClient client)
         {
-            Console.Write("Enter id number: ");
-            string idNumber = Console.ReadLine();
+            string idNumber = ReadLineAndTrim("Enter id number: ");
             if (string.IsNullOrWhiteSpace(idNumber))
                 return;
 
@@ -420,26 +419,17 @@ namespace HL7TestClient
 
         private static PRPA_MT101306NO01PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
         {
-            return new[] {
-                new PRPA_MT101306NO01PersonName {
-                    value = new[] {
-                        new PN {
-                            Items = nameItems.ToArray()
-                        }
-                    }
-                }
-            };
+            return new[] {new PRPA_MT101306NO01PersonName {value = new[] {new PN {Items = nameItems.ToArray()}}}};
         }
-
+        
+        private static PRPA_MT101306NO01IdentifiedPersonAddress[] CreateIdentifiedPersonAddressParameter(IEnumerable<ADXP> addressItems)
+        {
+            return new[] {new PRPA_MT101306NO01IdentifiedPersonAddress {value = new[] {new AD {Items = addressItems.ToArray()}}}};
+        }
+        
         private static PRPA_MT101306NO01PersonBirthTime[] CreatePersonBirthTimeParameter(string dateOfBirth)
         {
-            return new[] {
-                new PRPA_MT101306NO01PersonBirthTime {
-                    value = new[] {
-                        new IVL_TS {value = dateOfBirth}
-                    }
-                }
-            };
+            return new[] {new PRPA_MT101306NO01PersonBirthTime {value = new[] {new IVL_TS {value = dateOfBirth}}}};
         }
 
         private static string GetOid(string idNumber)
@@ -512,6 +502,28 @@ namespace HL7TestClient
                 }
             };
             return message;
+        }
+
+        private static PersonalInformation ReadPersonalInformation(bool askForIdNumber, bool askForGender)
+        {
+            var info = new PersonalInformation();
+            if (askForIdNumber)
+                info.IdNumber = ReadLineAndTrim("F-number / D-number / FH-number: ");
+            info.FirstName = ReadLineAndTrim("First name(s): ");
+            info.MiddleName = ReadLineAndTrim("Middle name(s): ");
+            info.LastName = ReadLineAndTrim("Last name(s): ");
+            info.DateOfBirth = ReadLineAndTrim(string.Format("Date of birth ({0}): ", DateFormat));
+            info.StreetAddressLine = ReadLineAndTrim("Street address line: ");
+            info.ZipCode = ReadLineAndTrim("Zip code: ");
+            if (askForGender)
+                info.Gender = ReadLineAndTrim("Gender (M/F): ");
+            return info;
+        }
+
+        private static string ReadLineAndTrim(string message)
+        {
+            Console.Write(message);
+            return (Console.ReadLine() ?? "").Trim();
         }
     }
 }

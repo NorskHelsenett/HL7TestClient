@@ -92,6 +92,7 @@
     <Compile Include="Interfaces\IRequestMessage.cs" />
     <Compile Include="Interfaces\IResponseMessage.cs" />
     <Compile Include="Interfaces\ISenderOrReceiver.cs" />
+    <Compile Include="PersonalInformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\PersonRegistry\Reference.cs">
