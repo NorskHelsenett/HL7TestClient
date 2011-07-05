@@ -50,6 +50,9 @@
     <Compile Include="Constants\IdNumberOid.cs" />
     <Compile Include="Constants\ProcessingCode.cs" />
     <Compile Include="Constants\QueryResponseCode.cs" />
+    <Compile Include="HL7Extensions\DataTypes\AD.cs" />
+    <Compile Include="HL7Extensions\DataTypes\TS.cs" />
+    <Compile Include="HL7Extensions\DataTypes\PN.cs" />
     <Compile Include="HL7Extensions\DataTypes\II.cs" />
     <Compile Include="HL7Extensions\MessageControlInfrastructure\MCCI_MT000100UV01Agent.cs" />
     <Compile Include="HL7Extensions\MessageControlInfrastructure\MCCI_MT000100UV01Device.cs" />

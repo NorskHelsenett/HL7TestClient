@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -54,7 +53,7 @@ namespace HL7TestClient
                         else if (action == "A")
                             AddPerson(client);
                         else if (action == "R")
-                            RecordRevised(client);
+                            RevisePersonRecord(client);
                         else if (action == "L")
                             LinkPersonRecords(client);
                         else if (action == "U")
@@ -171,15 +170,31 @@ namespace HL7TestClient
 
         private static void AddPerson(PersonRegistryClient client)
         {
+            var info = ReadPersonalInformation(false, true);
+
+            var innerPerson = new PRPA_MT101311NO01Person();
+
+            var nameItems = CreateNameItems(info);
+            if (nameItems.Count() > 0)
+                innerPerson.name = new[] {new PN(nameItems)};
+
+            if (IsDateSpecifiedAndValid(info.DateOfBirth))
+                innerPerson.birthTime = new TS(info.DateOfBirth);
+
+            var addressItems = CreateAddressItems(info);
+            if (addressItems.Count() > 0)
+                innerPerson.addr = new[] {new AD(addressItems)};
+
+            if (info.Gender != "")
+                innerPerson.administrativeGenderCode = CreateAdministrativeGenderCode(info.Gender);
+
             var request = SetTopLevelFields(new PRPA_IN101311NO01 {
                 controlActProcess = new PRPA_IN101311NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101311NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101311NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101311NO01MFMI_MT700721UV01Subject2 {
                                 identifiedPerson = new PRPA_MT101311NO01IdentifiedPerson {
-                                    identifiedPerson = new PRPA_MT101311NO01Person {
-                                        birthTime = new TS {value = "19850924"}
-                                    }
+                                    identifiedPerson = innerPerson
                                 }
                             }
                         }
@@ -194,38 +209,40 @@ namespace HL7TestClient
             Console.WriteLine();
         }
 
-        private static void RecordRevised(PersonRegistryClient client)
+        private static CE CreateAdministrativeGenderCode(string gender)
         {
-            Console.Write("Enter id number: ");
-            string idNumber = Console.ReadLine();
-            if (string.IsNullOrWhiteSpace(idNumber))
-                return;
+            return new CE {code = gender, codeSystem = "2.16.840.1.113883.5.1"};
+        }
+
+        private static void RevisePersonRecord(PersonRegistryClient client)
+        {
+            var info = ReadPersonalInformation(true, true);
+            
+            var outerPerson = new PRPA_MT101302NO01IdentifiedPerson {
+                id = new[] {new II {root = GetOid(info.IdNumber), extension = info.IdNumber}},
+                identifiedPerson = new PRPA_MT101302NO01Person()
+            };
+
+            var nameItems = CreateNameItems(info);
+            if (nameItems.Count() > 0)
+                outerPerson.identifiedPerson.name = new[] {new PN(nameItems)};
+
+            if (IsDateSpecifiedAndValid(info.DateOfBirth))
+                outerPerson.identifiedPerson.birthTime = new TS(info.DateOfBirth);
+
+            var addressItems = CreateAddressItems(info);
+            if (addressItems.Count() > 0)
+                outerPerson.identifiedPerson.addr = new[] {new AD(addressItems)};
+            
+            if (info.Gender != "")
+                outerPerson.identifiedPerson.administrativeGenderCode = CreateAdministrativeGenderCode(info.Gender);
 
             var request = SetTopLevelFields(new PRPA_IN101314NO01 {
                 controlActProcess = new PRPA_IN101314NO01MFMI_MT700721UV01ControlActProcess {
                     subject = new PRPA_IN101314NO01MFMI_MT700721UV01Subject1 {
                         registrationRequest = new PRPA_IN101314NO01MFMI_MT700721UV01RegistrationRequest {
                             subject1 = new PRPA_IN101314NO01MFMI_MT700721UV01Subject2 {
-                                identifiedPerson = new PRPA_MT101302NO01IdentifiedPerson {
-                                    id = new[] {new II {root = GetOid(idNumber), extension = idNumber}},
-                                    identifiedPerson = new PRPA_MT101302NO01Person {
-                                        administrativeGenderCode = new CE {codeSystem = "2.16.840.1.113883.5.1", code = "M"},
-                                        birthTime = new TS {value = "19480526"},
-                                        name = new[] {
-                                            new PN {
-                                                use = new[] {EntityNameUse.OR},
-                                                Items = new ENXP[] {
-                                                    new engiven {Text = new[] {"Ole"}},
-                                                    new engiven {Text = new[] {"Petter"}},
-                                                    new enfamily {qualifier = new[] {EntityNamePartQualifier.MID}, Text = new[] {"Fjell"}},
-                                                    new enfamily {qualifier = new[] {EntityNamePartQualifier.MID}, Text = new[] {"Berg"}},
-                                                    new enfamily {Text = new[] {"Bang"}},
-                                                    new enfamily {Text = new[] {"Hansen"}}
-                                                }
-                                            }
-                                        },
-                                    }
-                                }
+                                identifiedPerson = outerPerson
                             }
                         }
                     }
