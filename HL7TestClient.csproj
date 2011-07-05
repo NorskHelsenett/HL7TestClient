@@ -95,6 +95,7 @@
     <Compile Include="Interfaces\IRequestMessage.cs" />
     <Compile Include="Interfaces\IResponseMessage.cs" />
     <Compile Include="Interfaces\ISenderOrReceiver.cs" />
+    <Compile Include="NullSafeObjectPathTraverser.cs" />
     <Compile Include="PersonalInformation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

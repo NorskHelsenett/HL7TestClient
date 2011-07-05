@@ -109,10 +109,10 @@ namespace HL7TestClient
             });
 
             FindCandidatesRequestSerializer.Serialize(Console.Out, message);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             PRPA_IN101306NO01 result = client.FindCandidates(message);
             FindCandidatesResponseSerializer.Serialize(Console.Out, result);
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             Console.WriteLine("Found {0} persons:", result.controlActProcess.queryAck.resultTotalQuantity.value);
             if (result.controlActProcess.subject != null)
@@ -130,10 +130,10 @@ namespace HL7TestClient
             PRPA_IN101307NO01 request = CreateGetDemographicsRequest(id);
 
             GetDemographicsRequestSerializer.Serialize(Console.Out, request);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             PRPA_IN101308NO01 response = client.GetDemographics(request);
             GetDemographicsResponseSerializer.Serialize(Console.Out, response);
-            Console.WriteLine();
+            Console.WriteLine("\n");
 
             string queryResponseCode = response.controlActProcess.queryAck.queryResponseCode.code;
             switch (queryResponseCode)
@@ -203,10 +203,19 @@ namespace HL7TestClient
             });
             
             AddPersonRequestSerializer.Serialize(Console.Out, request);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             PRPA_IN101319NO01 response = client.AddPerson(request);
             AddPersonOrRevisePersonRecordResponseSerializer.Serialize(Console.Out, response);
-            Console.WriteLine();
+            Console.WriteLine("\n");
+
+            var pathToFirstNull = new List<string>();
+            var subject = NullSafeObjectPathTraverser.Traverse(response, r => r.controlActProcess.subject, pathToFirstNull);
+            if (subject != null && subject.Length > 0)
+            {
+                var id = NullSafeObjectPathTraverser.Traverse(subject[0], s => s.registrationEvent.subject1.identifiedPerson.id, pathToFirstNull);
+                if (id != null && id.Length > 0)
+                    Console.WriteLine("The person has been given the FH-number " + id[0].extension);
+            }
         }
 
         private static CE CreateAdministrativeGenderCode(string gender)
@@ -250,7 +259,7 @@ namespace HL7TestClient
             });
 
             RevisePersonRecordRequestSerializer.Serialize(Console.Out, request);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             PRPA_IN101319NO01 response = client.RevisePersonRecord(request);
             AddPersonOrRevisePersonRecordResponseSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
@@ -288,7 +297,7 @@ namespace HL7TestClient
             });
             
             LinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             MCAI_IN000004NO01 response = client.LinkPersonRecords(request);
             AcknowledgementSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
@@ -324,7 +333,7 @@ namespace HL7TestClient
             });
             
             UnlinkPersonRecordsRequestSerializer.Serialize(Console.Out, request);
-            Console.WriteLine();
+            Console.WriteLine("\n");
             MCAI_IN000004NO01 response = client.UnlinkPersonRecords(request);
             AcknowledgementSerializer.Serialize(Console.Out, response);
             Console.WriteLine();
