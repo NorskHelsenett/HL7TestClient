@@ -34,46 +34,45 @@ namespace HL7TestClient
         private static CS _processingCode = ProcessingCode.Test();
         
         private static readonly Random Random = new Random();
-            
+
         static void Main()
         {
             var client = CreateClient();
-            using (client)
+            while (true)
             {
-                while (true)
+                try
                 {
-                    try
-                    {
-                        Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, change (P)rocessing code, run performance (T)est, or (E)xit? ");
-                        string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
-                        if (action == "F")
-                            FindCandidates(client);
-                        else if (action == "G")
-                            GetDemographics(client);
-                        else if (action == "A")
-                            AddPerson(client);
-                        else if (action == "R")
-                            RevisePersonRecord(client);
-                        else if (action == "L")
-                            LinkPersonRecords(client);
-                        else if (action == "U")
-                            UnlinkPersonRecords(client);
-                        else if (action == "P")
-                            ChangeProcessingCode();
-                        else if (action == "T")
-                            RunPerformanceTest(client);
-                        else if (action == "E")
-                            break;
-                    }
-                    catch (Exception e)
-                    {
-                        Console.WriteLine(e);
-                        client.Abort();
-                        ((IDisposable) client).Dispose();
-                        client = CreateClient();
-                    }
+                    Console.Write("\nWould you like to (F)indCandidates, (G)etDemographics, (A)ddPerson, (R)evisePersonRecord, (L)inkPersonRecords, (U)nlinkPersonRecords, change (P)rocessing code, run performance (T)est, or (E)xit? ");
+                    string action = (Console.ReadLine() ?? "E").Trim().ToUpper();
+                    if (action == "F")
+                        FindCandidates(client);
+                    else if (action == "G")
+                        GetDemographics(client);
+                    else if (action == "A")
+                        AddPerson(client);
+                    else if (action == "R")
+                        RevisePersonRecord(client);
+                    else if (action == "L")
+                        LinkPersonRecords(client);
+                    else if (action == "U")
+                        UnlinkPersonRecords(client);
+                    else if (action == "P")
+                        ChangeProcessingCode();
+                    else if (action == "T")
+                        RunPerformanceTest(client);
+                    else if (action == "E")
+                        break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    client.Abort();
+                    ((IDisposable) client).Dispose();
+                    client = CreateClient();
                 }
             }
+            client.Abort();
+            ((IDisposable) client).Dispose();
         }
 
         private static PersonRegistryClient CreateClient()
