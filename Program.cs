@@ -90,28 +90,15 @@ namespace HL7TestClient
             var info = ReadPersonalInformation(false, false);
             var paramList = new PRPA_MT101306NO01ParameterList();
 
-            var nameItems = new List<ENXP>();
-            nameItems.AddRange(info.FirstName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(fn => new engiven(fn)));
-            nameItems.AddRange(info.MiddleName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(mn => new enfamily(mn, true)));
-            nameItems.AddRange(info.LastName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(ln => new enfamily(ln)));
-            if (nameItems.Count > 0)
+            var nameItems = CreateNameItems(info);
+            if (nameItems.Count() > 0)
                 paramList.personName = CreatePersonNameParameter(nameItems);
 
-            if (info.DateOfBirth != "")
-            {
-                DateTime dummy;
-                if (DateTime.TryParseExact(info.DateOfBirth, DateFormat, null, DateTimeStyles.None, out dummy))
-                    paramList.personBirthTime = CreatePersonBirthTimeParameter(info.DateOfBirth);
-                else
-                    Console.WriteLine("Warning: Date of birth is illegal; skipping");
-            }
+            if (IsDateSpecifiedAndValid(info.DateOfBirth))
+                paramList.personBirthTime = CreatePersonBirthTimeParameter(info.DateOfBirth);
 
-            var addressItems = new List<ADXP>();
-            if (info.StreetAddressLine != "")
-                addressItems.Add(new adxpstreetAddressLine {Text = new[] {info.StreetAddressLine}});
-            if (info.ZipCode != "")
-                addressItems.Add(new adxppostalCode {Text = new[] {info.ZipCode}});
-            if (addressItems.Count > 0)
+            var addressItems = CreateAddressItems(info);
+            if (addressItems.Count() > 0)
                 paramList.identifiedPersonAddress = CreateIdentifiedPersonAddressParameter(addressItems);
 
             var message = SetTopLevelFields(new PRPA_IN101305NO01 {
@@ -415,6 +402,38 @@ namespace HL7TestClient
                 if (ChecksumGenerator.AppendChecksum(ref fhNumber))
                     return fhNumber;
             }
+        }
+
+        private static IEnumerable<ENXP> CreateNameItems(PersonalInformation info)
+        {
+            var nameItems = new List<ENXP>();
+            nameItems.AddRange(info.FirstName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(fn => new engiven(fn)));
+            nameItems.AddRange(info.MiddleName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(mn => new enfamily(mn, true)));
+            nameItems.AddRange(info.LastName.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries).Select(ln => new enfamily(ln)));
+            return nameItems;
+        }
+
+        private static IEnumerable<ADXP> CreateAddressItems(PersonalInformation info)
+        {
+            var addressItems = new List<ADXP>();
+            if (info.StreetAddressLine != "")
+                addressItems.Add(new adxpstreetAddressLine {Text = new[] {info.StreetAddressLine}});
+            if (info.ZipCode != "")
+                addressItems.Add(new adxppostalCode {Text = new[] {info.ZipCode}});
+            return addressItems;
+        }
+
+        private static bool IsDateSpecifiedAndValid(string date)
+        {
+            if (date == "")
+                return false;
+
+            DateTime dummy;
+            if (DateTime.TryParseExact(date, DateFormat, null, DateTimeStyles.None, out dummy))
+                return true;
+
+            Console.WriteLine("Warning: Date of birth is illegal; skipping");
+            return false;
         }
 
         private static PRPA_MT101306NO01PersonName[] CreatePersonNameParameter(IEnumerable<ENXP> nameItems)
