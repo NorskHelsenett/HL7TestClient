@@ -4,6 +4,9 @@ using System.Configuration;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using System.Net;
+using System.ServiceModel;
+using System.ServiceModel.Security;
 using System.Text;
 using System.Threading;
 using System.Xml.Serialization;
@@ -66,6 +69,21 @@ namespace HL7TestClient
                 catch (Exception e)
                 {
                     Console.WriteLine(e);
+                    if (e is EndpointNotFoundException && e.InnerException is WebException)
+                    {
+                        if (e.InnerException.Message == "The remote server returned an error: (404) Not Found.")
+                            Console.WriteLine("\n\n=== An error occurred when connecting to the server: the server was found, but the service endpoint was not found. This probably means that the URL in the config file is wrong. ===\n");
+                        else if (e.InnerException.Message.StartsWith("The remote name could not be resolved: "))
+                            Console.WriteLine("\n\n=== An error occurred when connecting to the server: the server was not found. This probably means that the URL in the config file is wrong. ===\n");
+                    }
+                    else if (e is MessageSecurityException && e.InnerException is FaultException)
+                    {
+                        if (e.InnerException.Message == "An error occurred when verifying security for the message.")
+                            Console.WriteLine("\n\n=== An error occurred when establishing a secure connection. A possible reason for this is that your local machine clock is out of synch with NHN's server clock. Please contact NHN and ask what the server time is on the server you're trying to connect to. ===\n");
+                        else if (e.InnerException.Message == "At least one security token in the message could not be validated.")
+                            Console.WriteLine("\n\n=== An error occurred when authenticating. This probably means that the username and/or password in the config file are wrong. ===\n");
+                    }
+
                     client.Abort();
                     ((IDisposable) client).Dispose();
                     client = CreateClient();
