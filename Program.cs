@@ -537,7 +537,7 @@ namespace HL7TestClient
             if (person.addr != null && person.addr.Length > 0)
             {
                 sb.Append("; Address: ");
-                sb.Append(string.Join(" ", person.addr[0].Items.Select(ai => ai.Text[0])));
+                sb.Append(string.Join(" ", person.addr[0].Items.Select(ai => ai.Text != null && ai.Text.Length > 0 ? ai.Text[0] : "")));
             }
 
             return sb.ToString();
