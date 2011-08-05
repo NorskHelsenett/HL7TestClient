@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="sOPwmvCJZ0Y8vPE9OF+7IJjT/F4=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="PZ0xs7Lgv/MtQP8moQg3ijSV8Go=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="wsHttpBinding" name="WSHttpBinding_IPersonRegistry">
       <properties>
@@ -127,10 +127,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="WSHttpBinding_IPersonRegistry" contract="PersonRegistry.IPersonRegistry" bindingType="wsHttpBinding" address="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc" bindingConfiguration="WSHttpBinding_IPersonRegistry">
+    <endpoint name="WSHttpBinding_IPersonRegistry" contract="PersonRegistry.IPersonRegistry" bindingType="wsHttpBinding" address="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc" bindingConfiguration="WSHttpBinding_IPersonRegistry">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc</serializedValue>
+          <serializedValue>https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

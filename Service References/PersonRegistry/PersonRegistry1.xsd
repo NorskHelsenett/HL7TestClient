@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd1" namespace="urn:hl7-org:v3" />
+  <xs:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?xsd=xsd1" namespace="urn:hl7-org:v3" />
   <xs:element name="FindCandidates">
     <xs:complexType>
       <xs:sequence>

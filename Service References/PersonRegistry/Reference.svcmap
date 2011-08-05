@@ -18,13 +18,13 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PersonRegistry.wsdl" MetadataType="Wsdl" ID="fb2a7ef5-c8da-45dc-ad57-b1074ff98254" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?wsdl" />
-    <MetadataFile FileName="PersonRegistry.disco" MetadataType="Disco" ID="7d336a9b-0ffa-4cc6-ae0d-d3bcfb5fc539" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?disco" />
-    <MetadataFile FileName="PersonRegistry5.xsd" MetadataType="Schema" ID="0c070c20-3d24-4606-9f25-f4819565005d" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd1" />
-    <MetadataFile FileName="PersonRegistry6.xsd" MetadataType="Schema" ID="7eb120a3-e765-4884-8713-0c4a581312f4" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd0" />
+    <MetadataFile FileName="PersonRegistry.xsd" MetadataType="Schema" ID="6178be39-3421-4c6e-ab9a-d457abc0ddcc" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?xsd=xsd1" />
+    <MetadataFile FileName="PersonRegistry1.disco" MetadataType="Disco" ID="196bbf23-102a-4284-b249-09c8dc3de53b" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?disco" />
+    <MetadataFile FileName="PersonRegistry1.wsdl" MetadataType="Wsdl" ID="59c4e871-f910-48dc-a357-aa76bee84492" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?wsdl" />
+    <MetadataFile FileName="PersonRegistry1.xsd" MetadataType="Schema" ID="b8f166d0-1e50-4812-902a-e30035b57368" SourceId="1" SourceUrl="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

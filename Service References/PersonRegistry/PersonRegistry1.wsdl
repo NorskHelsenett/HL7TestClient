@@ -103,8 +103,8 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc?xsd=xsd1" namespace="urn:hl7-org:v3" />
+      <xsd:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc?xsd=xsd1" namespace="urn:hl7-org:v3" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IPersonRegistry_FindCandidates_InputMessage">
@@ -229,9 +229,9 @@
   </wsdl:binding>
   <wsdl:service name="PersonRegistry">
     <wsdl:port name="WSHttpBinding_IPersonRegistry" binding="tns:WSHttpBinding_IPersonRegistry">
-      <soap12:address location="https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc" />
+      <soap12:address location="https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc" />
       <wsa10:EndpointReference>
-        <wsa10:Address>https://pc-078.nhn.local/Gondor.Query.REST.WS/HL7/PersonRegistry.svc</wsa10:Address>
+        <wsa10:Address>https://pc-078.nhn.local/Gondor.Query.HL7/PersonRegistry.svc</wsa10:Address>
         <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
           <Dns>pc-078.nhn.local</Dns>
         </Identity>
